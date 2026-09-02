@@ -6,31 +6,112 @@
 
     <title>Hanen Alahmari | IT & Cybersecurity</title>
 
+    <meta name="description"
+          content="Hanen Alahmari - Information Technology student interested in Cybersecurity, AI, and Automation.">
+
     <style>
+
+        /* =========================
+           GENERAL
+        ========================== */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
+            font-family: Arial, Helvetica, sans-serif;
             background: #0d1117;
             color: #ffffff;
             line-height: 1.6;
         }
 
-        header {
-            min-height: 100vh;
+        a {
+            text-decoration: none;
+        }
+
+        section {
+            padding: 90px 8%;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(13, 17, 23, 0.92);
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid #30363d;
+
+            padding: 18px 8%;
+
             display: flex;
+            justify-content: space-between;
             align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #58a6ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #c9d1d9;
+            transition: 0.3s;
+            font-size: 15px;
+        }
+
+        .nav-links a:hover {
+            color: #58a6ff;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
             justify-content: center;
+            align-items: center;
+
             text-align: center;
-            padding: 30px;
+
+            padding: 120px 20px 60px;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #172554 0%,
+                    #0d1117 45%
+                );
+        }
+
+        .hero-content {
+            max-width: 850px;
         }
 
         .hero h1 {
-            font-size: 55px;
+            font-size: clamp(45px, 8vw, 75px);
             margin-bottom: 15px;
         }
 
@@ -39,93 +120,211 @@
         }
 
         .hero h2 {
-            font-size: 25px;
             color: #8b949e;
-            margin-bottom: 20px;
+            font-size: clamp(20px, 3vw, 28px);
+            margin-bottom: 25px;
         }
 
         .hero p {
-            max-width: 650px;
-            margin: auto;
             color: #c9d1d9;
             font-size: 18px;
+            max-width: 700px;
+            margin: auto;
         }
 
-        .buttons {
-            margin-top: 30px;
+        .hero-buttons {
+            margin-top: 35px;
+
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
-        .buttons a {
-            display: inline-block;
-            margin: 8px;
-            padding: 12px 25px;
+        .btn {
+            padding: 13px 25px;
             border-radius: 8px;
-            text-decoration: none;
-            color: white;
-            background: #238636;
+
+            font-weight: bold;
+
             transition: 0.3s;
         }
 
-        .buttons a:hover {
-            transform: translateY(-3px);
+        .primary-btn {
+            background: #238636;
+            color: white;
+        }
+
+        .primary-btn:hover {
             background: #2ea043;
+            transform: translateY(-3px);
         }
 
-        section {
-            padding: 80px 10%;
-        }
-
-        section h2 {
-            text-align: center;
-            font-size: 35px;
-            margin-bottom: 40px;
+        .secondary-btn {
+            border: 1px solid #58a6ff;
             color: #58a6ff;
         }
 
-        .about {
+        .secondary-btn:hover {
+            background: #58a6ff;
+            color: #0d1117;
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           SECTION TITLES
+        ========================== */
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            color: #58a6ff;
+            margin-bottom: 50px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about-container {
             max-width: 850px;
             margin: auto;
+
             text-align: center;
+
             color: #c9d1d9;
             font-size: 18px;
         }
+
+        .about-container p {
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           EDUCATION
+        ========================== */
+
+        .education-card {
+            max-width: 800px;
+            margin: auto;
+
+            background: #161b22;
+
+            border: 1px solid #30363d;
+
+            border-radius: 14px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            transition: 0.3s;
+        }
+
+        .education-card:hover {
+            border-color: #58a6ff;
+            transform: translateY(-5px);
+        }
+
+        .education-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .education-card p {
+            color: #8b949e;
+        }
+
+        .education-card .university {
+            color: #58a6ff;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================== */
 
         .skills {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+
             gap: 15px;
+
+            max-width: 900px;
+            margin: auto;
         }
 
         .skill {
-            padding: 12px 20px;
             background: #161b22;
+
             border: 1px solid #30363d;
+
+            padding: 12px 20px;
+
             border-radius: 8px;
+
+            color: #c9d1d9;
+
+            transition: 0.3s;
         }
+
+        .skill:hover {
+            color: #58a6ff;
+            border-color: #58a6ff;
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================== */
 
         .projects {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
             gap: 25px;
+
+            max-width: 1100px;
+            margin: auto;
         }
 
         .project {
             background: #161b22;
-            padding: 25px;
-            border-radius: 12px;
+
             border: 1px solid #30363d;
+
+            border-radius: 14px;
+
+            padding: 28px;
+
+            display: flex;
+            flex-direction: column;
+
             transition: 0.3s;
         }
 
         .project:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             border-color: #58a6ff;
         }
 
-        .project h3 {
+        .project-icon {
+            font-size: 35px;
             margin-bottom: 15px;
-            color: #ffffff;
+        }
+
+        .project h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
         }
 
         .project p {
@@ -133,37 +332,243 @@
             margin-bottom: 20px;
         }
 
-        .project a {
-            color: #58a6ff;
-            text-decoration: none;
+        .tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            margin-bottom: 25px;
         }
+
+        .tech span {
+            font-size: 12px;
+
+            padding: 5px 9px;
+
+            border-radius: 5px;
+
+            background: #21262d;
+            color: #58a6ff;
+        }
+
+        .project-link {
+            color: #58a6ff;
+            font-weight: bold;
+
+            margin-top: auto;
+
+            transition: 0.3s;
+        }
+
+        .project-link:hover {
+            color: #79c0ff;
+        }
+
+
+        /* =========================
+           CURRENTLY LEARNING
+        ========================== */
+
+        .learning {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 20px;
+
+            max-width: 1000px;
+
+            margin: auto;
+        }
+
+        .learning-card {
+            background: #161b22;
+
+            border: 1px solid #30363d;
+
+            border-radius: 12px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            transition: 0.3s;
+        }
+
+        .learning-card:hover {
+            transform: translateY(-5px);
+            border-color: #58a6ff;
+        }
+
+        .learning-card .icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .learning-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .learning-card p {
+            color: #8b949e;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================== */
 
         .contact {
             text-align: center;
         }
 
-        .contact a {
-            color: #58a6ff;
-            text-decoration: none;
+        .contact p {
+            color: #c9d1d9;
+            margin-bottom: 20px;
         }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            padding: 12px 20px;
+
+            border: 1px solid #30363d;
+
+            border-radius: 8px;
+
+            color: #58a6ff;
+
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            border-color: #58a6ff;
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
 
         footer {
             text-align: center;
+
             padding: 30px;
+
             border-top: 1px solid #30363d;
+
             color: #8b949e;
+
+            font-size: 14px;
         }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            section {
+                padding: 70px 6%;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+        }
+
     </style>
 </head>
 
+
 <body>
 
-<header>
-    <div class="hero">
 
-        <h1>Hi, I'm <span>Hanen</span> 👋</h1>
+<!-- =========================
+     NAVIGATION
+========================== -->
 
-        <h2>IT Student | Cybersecurity & Technology Enthusiast</h2>
+<nav>
+
+    <div class="logo">
+        Hanen.dev
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="#about">About</a>
+        </li>
+
+        <li>
+            <a href="#education">Education</a>
+        </li>
+
+        <li>
+            <a href="#skills">Skills</a>
+        </li>
+
+        <li>
+            <a href="#projects">Projects</a>
+        </li>
+
+        <li>
+            <a href="#contact">Contact</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================== -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Hi, I'm <span>Hanen</span> 👋
+        </h1>
+
+        <h2>
+            IT Student | Cybersecurity & Technology Enthusiast
+        </h2>
 
         <p>
             I enjoy learning, building technical projects,
@@ -171,167 +576,435 @@
             and automation.
         </p>
 
-        <div class="buttons">
-            <a href="https://github.com/Hanen-code" target="_blank">
+        <div class="hero-buttons">
+
+            <a
+                class="btn primary-btn"
+                href="#projects">
+                View My Projects ↓
+            </a>
+
+            <a
+                class="btn secondary-btn"
+                href="https://github.com/Hanen-code"
+                target="_blank">
                 GitHub
             </a>
 
-            <a href="https://www.linkedin.com/in/hanen-alahmari-it" target="_blank">
+            <a
+                class="btn secondary-btn"
+                href="https://www.linkedin.com/in/hanen-alahmari-it"
+                target="_blank">
                 LinkedIn
             </a>
+
         </div>
 
     </div>
+
 </header>
 
 
-<section>
 
-    <h2>About Me</h2>
+<!-- =========================
+     ABOUT
+========================== -->
 
-    <div class="about">
+<section id="about">
+
+    <h2 class="section-title">
+        About Me
+    </h2>
+
+    <div class="about-container">
+
         <p>
             I am an Information Technology student at
             King Abdulaziz University with an interest in
             cybersecurity, artificial intelligence, and technology.
         </p>
 
-        <br>
-
         <p>
-            I enjoy developing projects that combine technology
-            with real-world problems while continuously improving
-            my technical skills.
+            I enjoy developing technical projects that combine
+            technology with real-world problems while continuously
+            improving my skills and exploring new technologies.
         </p>
+
     </div>
 
 </section>
 
 
-<section>
 
-    <h2>Skills & Technologies</h2>
+<!-- =========================
+     EDUCATION
+========================== -->
+
+<section id="education">
+
+    <h2 class="section-title">
+        Education
+    </h2>
+
+    <div class="education-card">
+
+        <h3>
+            🎓 Bachelor of Information Technology
+        </h3>
+
+        <p class="university">
+            King Abdulaziz University
+        </p>
+
+        <p>
+            Information Technology Student
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SKILLS
+========================== -->
+
+<section id="skills">
+
+    <h2 class="section-title">
+        Skills & Technologies
+    </h2>
 
     <div class="skills">
 
         <div class="skill">Python</div>
+
         <div class="skill">Java</div>
+
         <div class="skill">C#</div>
+
+        <div class="skill">VB.NET</div>
+
         <div class="skill">Cybersecurity</div>
+
         <div class="skill">Nmap</div>
+
         <div class="skill">Wireshark</div>
+
         <div class="skill">FastAPI</div>
+
         <div class="skill">Machine Learning</div>
+
         <div class="skill">n8n</div>
+
         <div class="skill">Git & GitHub</div>
+
         <div class="skill">SQL</div>
+
+        <div class="skill">Linux</div>
 
     </div>
 
 </section>
 
 
-<section>
 
-    <h2>Featured Projects</h2>
+<!-- =========================
+     PROJECTS
+========================== -->
+
+<section id="projects">
+
+    <h2 class="section-title">
+        Featured Projects
+    </h2>
 
     <div class="projects">
 
+
+        <!-- PROJECT 1 -->
+
         <div class="project">
 
-            <h3>🛡️ Phishing Email Detector</h3>
+            <div class="project-icon">
+                🛡️
+            </div>
+
+            <h3>
+                Phishing Email Detector
+            </h3>
 
             <p>
                 A Machine Learning based system that classifies
-                emails as Phishing or Legitimate using
+                email text as Phishing or Legitimate using
                 TF-IDF and Machine Learning algorithms.
             </p>
 
-            <a href="https://github.com/Hanen-code/phishing-email-detector"
-               target="_blank">
-                View Project →
+            <div class="tech">
+
+                <span>Python</span>
+                <span>Scikit-learn</span>
+                <span>FastAPI</span>
+                <span>Machine Learning</span>
+
+            </div>
+
+            <a
+                class="project-link"
+                href="https://github.com/Hanen-code/phishing-email-detector"
+                target="_blank">
+
+                View on GitHub →
+
             </a>
 
         </div>
 
 
+
+        <!-- PROJECT 2 -->
+
         <div class="project">
 
-            <h3>🔐 Session Hijacking</h3>
+            <div class="project-icon">
+                🔐
+            </div>
+
+            <h3>
+                Session Hijacking
+            </h3>
 
             <p>
                 A controlled cybersecurity lab demonstrating
                 session hijacking and network traffic analysis
-                using Wireshark and an isolated environment.
+                using Wireshark in an isolated environment.
             </p>
 
-            <a href="https://github.com/Hanen-code/session-hijacking"
-               target="_blank">
-                View Project →
+            <div class="tech">
+
+                <span>Cybersecurity</span>
+                <span>Wireshark</span>
+                <span>Linux</span>
+                <span>VirtualBox</span>
+
+            </div>
+
+            <a
+                class="project-link"
+                href="https://github.com/Hanen-code/session-hijacking"
+                target="_blank">
+
+                View on GitHub →
+
             </a>
 
         </div>
 
+
+
+        <!-- PROJECT 3 -->
 
         <div class="project">
 
-            <h3>🤖 Cybersecurity News Automation</h3>
+            <div class="project-icon">
+                🤖
+            </div>
+
+            <h3>
+                Cybersecurity News Automation
+            </h3>
 
             <p>
-                An automated workflow built with n8n that collects
-                cybersecurity news, summarizes it using AI,
-                and delivers the results through Telegram.
+                An automated workflow that collects cybersecurity
+                news, summarizes it using AI, and delivers the
+                results through Telegram.
             </p>
 
-            <a href="https://github.com/Hanen-code/Cybersecurity-news-automation-n8n"
-               target="_blank">
-                View Project →
+            <div class="tech">
+
+                <span>n8n</span>
+                <span>SerpApi</span>
+                <span>Google Gemini</span>
+                <span>Telegram</span>
+
+            </div>
+
+            <a
+                class="project-link"
+                href="https://github.com/Hanen-code/Cybersecurity-news-automation-n8n"
+                target="_blank">
+
+                View on GitHub →
+
             </a>
 
         </div>
+
 
     </div>
 
 </section>
 
 
+
+<!-- =========================
+     CURRENTLY LEARNING
+========================== -->
+
 <section>
 
-    <h2>Contact</h2>
+    <h2 class="section-title">
+        Currently Learning
+    </h2>
+
+    <div class="learning">
+
+
+        <div class="learning-card">
+
+            <div class="icon">
+                🛡️
+            </div>
+
+            <h3>
+                Cybersecurity
+            </h3>
+
+            <p>
+                Exploring cybersecurity concepts,
+                network security and defensive techniques.
+            </p>
+
+        </div>
+
+
+        <div class="learning-card">
+
+            <div class="icon">
+                🤖
+            </div>
+
+            <h3>
+                Artificial Intelligence
+            </h3>
+
+            <p>
+                Learning Machine Learning and exploring
+                practical AI applications.
+            </p>
+
+        </div>
+
+
+        <div class="learning-card">
+
+            <div class="icon">
+                ⚙️
+            </div>
+
+            <h3>
+                Automation
+            </h3>
+
+            <p>
+                Building workflows and automations
+                using tools such as n8n and APIs.
+            </p>
+
+        </div>
+
+
+        <div class="learning-card">
+
+            <div class="icon">
+                ☁️
+            </div>
+
+            <h3>
+                APIs & Cloud
+            </h3>
+
+            <p>
+                Improving my understanding of APIs,
+                integrations and cloud technologies.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================== -->
+
+<section id="contact">
+
+    <h2 class="section-title">
+        Let's Connect
+    </h2>
 
     <div class="contact">
 
         <p>
-            Feel free to connect with me:
+            Feel free to connect with me through GitHub,
+            LinkedIn, or email.
         </p>
 
-        <br>
+        <div class="contact-links">
 
-        <p>
-            📧
-            <a href="mailto:hanen29111@outlook.sa">
-                hanen29111@outlook.sa
+            <a
+                class="contact-link"
+                href="https://github.com/Hanen-code"
+                target="_blank">
+
+                💻 GitHub
+
             </a>
-        </p>
 
-        <p>
-            💼
-            <a href="https://www.linkedin.com/in/hanen-alahmari-it"
-               target="_blank">
-                LinkedIn
+
+            <a
+                class="contact-link"
+                href="https://www.linkedin.com/in/hanen-alahmari-it"
+                target="_blank">
+
+                💼 LinkedIn
+
             </a>
-        </p>
+
+
+            <a
+                class="contact-link"
+                href="mailto:hanen29111@outlook.sa">
+
+                📧 Email
+
+            </a>
+
+        </div>
 
     </div>
 
 </section>
 
 
+
+<!-- =========================
+     FOOTER
+========================== -->
+
 <footer>
 
-    © 2026 Hanen Alahmari | Built with HTML & CSS
+    © 2026 Hanen Alahmari
+    · Built with HTML & CSS
 
 </footer>
+
 
 </body>
 </html>
