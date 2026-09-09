@@ -1,19 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Hanen.dev | IT Student</title>
 
-    <meta name="description"
-          content="Hanen Alahmari - IT Student interested in Cybersecurity, AI, Blue Team and Automation.">
+    <meta
+        name="description"
+        content="Hanen Alahmari - IT Student interested in Cybersecurity, Blue Team, AI and Automation."
+    >
 
     <style>
 
-        /* =========================
-           RESET
-        ========================== */
+        :root {
+            --bg: #080b10;
+            --bg-soft: #0d1117;
+            --card: rgba(13, 17, 23, 0.88);
+
+            --border: #30363d;
+            --border-soft: #1c2630;
+
+            --text: #e6edf3;
+            --muted: #8b949e;
+            --dim: #6e7681;
+
+            --green: #00d084;
+            --green-soft: rgba(0, 208, 132, 0.08);
+
+            --blue: #58a6ff;
+
+            --shadow:
+                0 20px 60px rgba(0, 0, 0, 0.35);
+
+            --radius: 14px;
+        }
+
+
+        /* RESET */
 
         * {
             margin: 0;
@@ -27,26 +53,28 @@
 
         body {
             font-family: "Courier New", monospace;
-            background: #080b10;
-            color: #e6edf3;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.7;
             overflow-x: hidden;
         }
 
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
         }
 
         ::selection {
-            background: #00d084;
-            color: #080b10;
+            background: var(--green);
+            color: var(--bg);
         }
 
 
-        /* =========================
-           BACKGROUND
-        ========================== */
+        /* BACKGROUND */
 
         body::before {
             content: "";
@@ -74,78 +102,105 @@
             content: "";
 
             position: fixed;
+
             width: 500px;
             height: 500px;
 
             top: -200px;
             right: -150px;
 
-            background: #00d084;
+            background: var(--green);
+
             opacity: 0.035;
 
             filter: blur(120px);
+
             border-radius: 50%;
 
             pointer-events: none;
+
             z-index: -1;
         }
 
 
-        /* =========================
-           NAVBAR
-        ========================== */
+        /* NAVIGATION */
 
         nav {
             position: fixed;
+
             top: 0;
             left: 0;
 
             width: 100%;
+
             z-index: 1000;
 
-            padding: 18px 7%;
+            padding: 17px 7%;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
 
-            background: rgba(8, 11, 16, 0.85);
+            background: rgba(8, 11, 16, 0.82);
+
             backdrop-filter: blur(15px);
 
-            border-bottom: 1px solid #1c2630;
+            border-bottom: 1px solid var(--border-soft);
         }
 
         .logo {
+            color: var(--green);
+
             font-size: 21px;
+
             font-weight: bold;
-            color: #00d084;
+
+            letter-spacing: -1px;
         }
 
         .logo::before {
             content: "$ ";
-            color: #6e7681;
+            color: var(--dim);
         }
 
         .nav-links {
             display: flex;
+
             gap: 28px;
+
             list-style: none;
         }
 
         .nav-links a {
-            color: #8b949e;
-            font-size: 14px;
+            color: var(--muted);
+
+            font-size: 13px;
+
             transition: 0.3s;
         }
 
         .nav-links a:hover {
-            color: #00d084;
+            color: var(--green);
+        }
+
+        .mobile-menu {
+            display: none;
+
+            border: 1px solid var(--border);
+
+            background: transparent;
+
+            color: var(--green);
+
+            padding: 6px 10px;
+
+            border-radius: 6px;
+
+            cursor: pointer;
         }
 
 
-        /* =========================
-           HERO
-        ========================== */
+        /* HERO */
 
         .hero {
             min-height: 100vh;
@@ -153,151 +208,171 @@
             display: flex;
             align-items: center;
 
-            padding: 130px 7% 80px;
+            padding: 130px 7% 90px;
         }
 
         .hero-container {
             width: 100%;
+
             max-width: 1150px;
+
             margin: auto;
 
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
 
-            gap: 70px;
+            grid-template-columns: 1.05fr 0.95fr;
+
             align-items: center;
+
+            gap: 60px;
         }
 
         .terminal-line {
-            color: #6e7681;
+            color: var(--green);
+
             font-size: 15px;
-            margin-bottom: 20px;
+
+            margin-bottom: 14px;
         }
 
-        .terminal-line span {
-            color: #00d084;
+        .terminal-line .cursor {
+            display: inline-block;
+
+            margin-left: 3px;
+
+            animation: blink 0.8s infinite;
         }
 
         .hero h1 {
             font-family: Arial, sans-serif;
 
-            font-size: clamp(48px, 7vw, 78px);
+            font-size: clamp(52px, 7vw, 78px);
 
             line-height: 1.05;
 
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .hero h1 span {
-            color: #00d084;
+            color: var(--green);
         }
 
         .hero h2 {
-            font-family: Arial, sans-serif;
+            color: var(--muted);
 
-            font-size: clamp(20px, 3vw, 28px);
+            font-size: 21px;
 
-            color: #8b949e;
+            font-weight: normal;
 
-            margin-bottom: 25px;
+            margin-bottom: 22px;
         }
 
         .hero-description {
-            max-width: 680px;
+            max-width: 650px;
 
-            color: #8b949e;
+            color: var(--muted);
 
-            font-size: 16px;
+            font-family: Arial, sans-serif;
+
+            font-size: 15px;
+
+            margin-bottom: 30px;
         }
 
         .hero-buttons {
             display: flex;
+
             flex-wrap: wrap;
 
-            gap: 12px;
-
-            margin-top: 32px;
+            gap: 10px;
         }
 
         .btn {
-            padding: 11px 20px;
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 10px 16px;
 
             border-radius: 7px;
 
-            border: 1px solid #30363d;
+            border: 1px solid var(--border);
 
-            font-size: 14px;
+            font-size: 13px;
 
             transition: 0.3s;
         }
 
         .primary-btn {
-            background: #00d084;
-            color: #080b10;
+            background: var(--green);
 
-            border-color: #00d084;
+            color: var(--bg);
+
+            border-color: var(--green);
 
             font-weight: bold;
         }
 
-        .primary-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 208, 132, 0.15);
-        }
-
         .secondary-btn {
-            color: #c9d1d9;
+            color: var(--text);
+
+            background: rgba(22, 27, 34, 0.7);
         }
 
-        .secondary-btn:hover {
-            border-color: #00d084;
-            color: #00d084;
+        .btn:hover {
             transform: translateY(-3px);
+
+            border-color: var(--green);
+
+            box-shadow:
+                0 10px 30px rgba(0, 208, 132, 0.12);
         }
 
 
-        /* =========================
-           TERMINAL CARD
-        ========================== */
+        /* TERMINAL */
 
         .terminal {
-            background: #0d1117;
+            background: var(--bg-soft);
 
-            border: 1px solid #30363d;
+            border: 1px solid var(--border);
 
-            border-radius: 12px;
+            border-radius: var(--radius);
 
             overflow: hidden;
 
-            box-shadow:
-                0 25px 70px rgba(0, 0, 0, 0.45);
+            box-shadow: var(--shadow);
+
+            animation: terminalFloat 5s ease-in-out infinite;
         }
 
         .terminal-header {
-            padding: 13px 16px;
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 12px 16px;
 
             background: #161b22;
 
-            border-bottom: 1px solid #30363d;
-
-            display: flex;
-            align-items: center;
-            gap: 7px;
+            border-bottom: 1px solid var(--border);
         }
 
         .dot {
-            width: 11px;
-            height: 11px;
+            width: 10px;
+            height: 10px;
 
             border-radius: 50%;
 
-            background: #30363d;
+            background: var(--border);
         }
 
         .terminal-title {
-            margin-left: 8px;
+            margin-left: 10px;
 
-            color: #6e7681;
+            color: var(--dim);
 
             font-size: 12px;
         }
@@ -305,63 +380,83 @@
         .terminal-body {
             padding: 25px;
 
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .terminal-body p {
-            margin-bottom: 12px;
+            margin-bottom: 11px;
         }
 
         .green {
-            color: #00d084;
+            color: var(--green);
         }
 
         .blue {
-            color: #58a6ff;
+            color: var(--blue);
         }
 
         .gray {
-            color: #6e7681;
+            color: var(--dim);
+        }
+
+        .status {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            color: var(--green);
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--green);
+
+            box-shadow: 0 0 12px var(--green);
         }
 
 
-        /* =========================
-           SECTIONS
-        ========================== */
+        /* SECTIONS */
 
         section {
-            padding: 100px 7%;
+            padding: 105px 7%;
         }
 
         .section-container {
             max-width: 1100px;
+
             margin: auto;
         }
 
         .section-heading {
-            margin-bottom: 50px;
+            margin-bottom: 48px;
         }
 
-        .section-heading .command {
-            color: #00d084;
-            font-size: 15px;
-            margin-bottom: 7px;
+        .command {
+            color: var(--green);
+
+            font-size: 14px;
+
+            margin-bottom: 6px;
         }
 
         .section-heading h2 {
             font-family: Arial, sans-serif;
 
-            font-size: 38px;
+            font-size: clamp(30px, 5vw, 40px);
         }
 
         .section-heading h2 span {
-            color: #00d084;
+            color: var(--green);
         }
 
 
-        /* =========================
-           WHOAMI
-        ========================== */
+        /* WHOAMI */
 
         .whoami {
             display: grid;
@@ -372,13 +467,29 @@
         }
 
         .whoami-text {
-            color: #8b949e;
+            color: var(--muted);
+
             font-family: Arial, sans-serif;
+
             font-size: 16px;
         }
 
         .whoami-text p {
             margin-bottom: 18px;
+        }
+
+        .whoami-terminal {
+            padding: 18px;
+
+            margin-bottom: 22px;
+
+            border-left: 2px solid var(--green);
+
+            background: var(--green-soft);
+
+            color: var(--muted);
+
+            font-size: 13px;
         }
 
         .highlight-cards {
@@ -390,103 +501,130 @@
         }
 
         .highlight {
-            background: rgba(22, 27, 34, 0.75);
+            background: var(--card);
 
-            border: 1px solid #30363d;
+            border: 1px solid var(--border);
 
             border-radius: 10px;
 
-            padding: 25px;
+            padding: 22px;
 
-            transition: 0.3s;
+            transition: 0.35s;
+
+            opacity: 0;
+        }
+
+        .highlight.visible {
+            opacity: 1;
+
+            transform: translateY(0);
         }
 
         .highlight:hover {
-            transform: translateY(-5px);
-            border-color: #00d084;
+            transform: translateY(-6px);
+
+            border-color: var(--green);
+
+            box-shadow:
+                0 15px 35px rgba(0, 208, 132, 0.08);
         }
 
         .highlight-icon {
             font-size: 27px;
-            margin-bottom: 12px;
+
+            margin-bottom: 10px;
         }
 
         .highlight h3 {
             font-family: Arial, sans-serif;
-            margin-bottom: 7px;
+
+            margin-bottom: 6px;
+
+            font-size: 17px;
         }
 
         .highlight p {
-            color: #6e7681;
-            font-size: 13px;
+            color: var(--dim);
+
+            font-size: 12px;
         }
 
 
-        /* =========================
-           SKILLS
-        ========================== */
+        /* SKILLS */
 
         .skill-groups {
             display: grid;
 
-            grid-template-columns:
-                repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr);
 
             gap: 20px;
         }
 
         .skill-group {
-            background: rgba(22, 27, 34, 0.75);
+            background: var(--card);
 
-            border: 1px solid #30363d;
+            border: 1px solid var(--border);
 
-            border-radius: 10px;
+            border-radius: 12px;
 
             padding: 25px;
 
-            transition: 0.3s;
+            transition: 0.35s;
         }
 
         .skill-group:hover {
-            border-color: #00d084;
+            border-color: var(--green);
+
+            transform: translateY(-4px);
         }
 
         .skill-group h3 {
-            color: #00d084;
+            color: var(--green);
 
-            font-size: 16px;
+            font-size: 15px;
 
-            margin-bottom: 18px;
+            margin-bottom: 17px;
         }
 
         .skill-list {
             display: flex;
+
             flex-wrap: wrap;
-            gap: 9px;
+
+            gap: 8px;
         }
 
         .skill {
-            padding: 7px 11px;
+            padding: 7px 10px;
 
-            background: #21262d;
+            background: #161b22;
+
+            border: 1px solid #21262d;
 
             border-radius: 5px;
 
             color: #c9d1d9;
 
             font-size: 12px;
+
+            transition: 0.25s;
+        }
+
+        .skill:hover {
+            color: var(--green);
+
+            border-color: var(--green);
+
+            transform: translateY(-2px);
         }
 
 
-        /* =========================
-           PROJECTS
-        ========================== */
+        /* PROJECTS */
 
         .projects {
             display: grid;
 
-            grid-template-columns:
-                repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr);
 
             gap: 22px;
         }
@@ -494,17 +632,25 @@
         .project {
             position: relative;
 
-            background: rgba(13, 17, 23, 0.9);
+            background: var(--card);
 
-            border: 1px solid #30363d;
+            border: 1px solid var(--border);
 
-            border-radius: 12px;
-
-            padding: 28px;
+            border-radius: 13px;
 
             overflow: hidden;
 
-            transition: 0.35s;
+            transition: 0.4s;
+
+            opacity: 0;
+
+            transform: translateY(25px);
+        }
+
+        .project.visible {
+            opacity: 1;
+
+            transform: translateY(0);
         }
 
         .project::before {
@@ -518,13 +664,15 @@
             width: 100%;
             height: 2px;
 
-            background: #00d084;
+            background: var(--green);
 
             transform: scaleX(0);
 
             transform-origin: left;
 
-            transition: 0.35s;
+            transition: 0.4s;
+
+            z-index: 2;
         }
 
         .project:hover {
@@ -532,235 +680,326 @@
 
             border-color: #3b4854;
 
-            box-shadow:
-                0 20px 50px rgba(0, 0, 0, 0.25);
+            box-shadow: var(--shadow);
         }
 
         .project:hover::before {
             transform: scaleX(1);
         }
 
-        .project-number {
-            color: #6e7681;
-            font-size: 12px;
+        .project-image {
+            position: relative;
 
-            margin-bottom: 15px;
+            height: 190px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0d1117,
+                    #161b22
+                );
+
+            border-bottom: 1px solid var(--border);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition: 0.5s;
+        }
+
+        .project:hover .project-image img {
+            transform: scale(1.04);
+        }
+
+        .project-image::after {
+            content: "PROJECT SCREENSHOT";
+
+            position: absolute;
+
+            color: var(--dim);
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+
+            pointer-events: none;
+        }
+
+        .project-image img:not([src=""]) {
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-number {
+            color: var(--green);
+
+            font-size: 11px;
+
+            margin-bottom: 12px;
+
+            letter-spacing: 1px;
         }
 
         .project-icon {
-            font-size: 35px;
+            font-size: 27px;
+
             margin-bottom: 12px;
         }
 
         .project h3 {
             font-family: Arial, sans-serif;
 
-            font-size: 21px;
+            font-size: 19px;
 
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .project p {
-            color: #8b949e;
+            color: var(--muted);
 
             font-family: Arial, sans-serif;
 
-            font-size: 14px;
+            font-size: 13px;
 
-            margin-bottom: 18px;
+            line-height: 1.7;
+
+            margin-bottom: 17px;
         }
 
         .tech {
             display: flex;
+
             flex-wrap: wrap;
 
             gap: 7px;
 
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .tech span {
-            color: #00d084;
-
-            background: rgba(0, 208, 132, 0.07);
-
-            border: 1px solid rgba(0, 208, 132, 0.2);
-
-            border-radius: 5px;
-
             padding: 5px 8px;
 
-            font-size: 11px;
+            background: #161b22;
+
+            border: 1px solid #21262d;
+
+            border-radius: 4px;
+
+            color: #8b949e;
+
+            font-size: 10px;
         }
 
         .project-link {
-            color: #58a6ff;
+            color: var(--green);
 
-            font-size: 13px;
+            font-size: 12px;
 
-            font-weight: bold;
+            transition: 0.3s;
         }
 
         .project-link:hover {
-            color: #79c0ff;
+            letter-spacing: 0.4px;
         }
 
 
-        /* =========================
-           EDUCATION
-        ========================== */
+        /* EDUCATION */
 
         .education {
             display: flex;
 
             align-items: center;
 
-            gap: 25px;
+            gap: 22px;
 
-            background: rgba(22, 27, 34, 0.75);
+            padding: 28px;
 
-            border: 1px solid #30363d;
+            background: var(--card);
+
+            border: 1px solid var(--border);
 
             border-radius: 12px;
 
-            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .education:hover {
+            border-color: var(--green);
         }
 
         .education-icon {
-            font-size: 40px;
+            font-size: 38px;
         }
 
         .education h3 {
             font-family: Arial, sans-serif;
 
-            font-size: 22px;
+            font-size: 20px;
 
             margin-bottom: 5px;
         }
 
-        .education .university {
-            color: #00d084;
+        .university {
+            color: var(--green);
 
-            font-weight: bold;
+            margin-bottom: 5px;
         }
 
         .education p {
-            color: #8b949e;
+            color: var(--dim);
 
-            font-size: 14px;
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
         }
 
 
-        /* =========================
-           CURRENTLY LEARNING
-        ========================== */
+        /* LEARNING */
 
         .learning {
             display: grid;
 
-            grid-template-columns:
-                repeat(4, 1fr);
+            grid-template-columns: repeat(4, 1fr);
 
-            gap: 15px;
+            gap: 16px;
         }
 
         .learning-card {
-            text-align: center;
+            padding: 25px 20px;
 
-            background: #161b22;
+            background: var(--card);
 
-            border: 1px solid #30363d;
+            border: 1px solid var(--border);
 
             border-radius: 10px;
 
-            padding: 25px 15px;
+            text-align: center;
 
-            transition: 0.3s;
+            transition: 0.35s;
         }
 
         .learning-card:hover {
-            border-color: #00d084;
-            transform: translateY(-5px);
+            transform: translateY(-6px);
+
+            border-color: var(--green);
+
+            box-shadow:
+                0 15px 35px rgba(0, 208, 132, 0.08);
         }
 
         .learning-card .icon {
-            font-size: 30px;
-            margin-bottom: 10px;
+            font-size: 28px;
+
+            margin-bottom: 12px;
         }
 
         .learning-card h3 {
             font-family: Arial, sans-serif;
 
-            font-size: 16px;
+            font-size: 15px;
 
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .learning-card p {
-            color: #6e7681;
+            color: var(--dim);
 
-            font-family: Arial, sans-serif;
+            font-size: 11px;
 
-            font-size: 12px;
+            line-height: 1.6;
         }
 
 
-        /* =========================
-           ACHIEVEMENTS
-        ========================== */
+        /* EXPERIENCE */
 
-        .achievements {
+        .experience-grid {
             display: grid;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
 
-            gap: 18px;
+            gap: 20px;
         }
 
-        .achievement {
-            background: #161b22;
+        .experience-card {
+            padding: 28px;
 
-            border: 1px solid #30363d;
+            background: var(--card);
 
-            border-radius: 10px;
+            border: 1px solid var(--border);
 
-            padding: 25px;
+            border-radius: 12px;
 
-            text-align: center;
-
-            transition: 0.3s;
+            transition: 0.35s;
         }
 
-        .achievement:hover {
-            border-color: #00d084;
+        .experience-card:hover {
+            border-color: var(--green);
+
             transform: translateY(-5px);
         }
 
-        .achievement-icon {
-            font-size: 30px;
-            margin-bottom: 10px;
+        .experience-icon {
+            font-size: 28px;
+
+            margin-bottom: 14px;
         }
 
-        .achievement h3 {
+        .experience-card h3 {
             font-family: Arial, sans-serif;
-            font-size: 16px;
+
+            font-size: 18px;
+
+            margin-bottom: 7px;
         }
 
-        .achievement p {
-            color: #6e7681;
+        .experience-card p {
+            color: var(--muted);
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+        }
+
+        .experience-list {
+            margin-top: 15px;
+
+            padding-left: 18px;
+
+            color: var(--dim);
+
+            font-family: Arial, sans-serif;
+
             font-size: 12px;
         }
 
+        .experience-list li {
+            margin-bottom: 6px;
+        }
 
-        /* =========================
-           CONTACT
-        ========================== */
 
-        .contact {
+        /* CONTACT */
+
+        .contact-box {
+            padding: 45px 30px;
+
             text-align: center;
-
-            padding: 45px;
 
             background:
                 linear-gradient(
@@ -769,13 +1008,15 @@
                     rgba(88, 166, 255, 0.04)
                 );
 
-            border: 1px solid #30363d;
+            border: 1px solid var(--border);
 
             border-radius: 14px;
         }
 
-        .contact p {
-            color: #8b949e;
+        .contact-box p {
+            color: var(--muted);
+
+            font-family: Arial, sans-serif;
 
             margin-bottom: 25px;
         }
@@ -787,13 +1028,13 @@
 
             flex-wrap: wrap;
 
-            gap: 12px;
+            gap: 10px;
         }
 
         .contact-link {
             padding: 10px 18px;
 
-            border: 1px solid #30363d;
+            border: 1px solid var(--border);
 
             border-radius: 7px;
 
@@ -803,43 +1044,143 @@
         }
 
         .contact-link:hover {
-            color: #00d084;
+            color: var(--green);
 
-            border-color: #00d084;
+            border-color: var(--green);
 
             transform: translateY(-3px);
         }
 
 
-        /* =========================
-           FOOTER
-        ========================== */
+        /* FOOTER */
 
         footer {
             text-align: center;
 
             padding: 35px;
 
-            border-top: 1px solid #1c2630;
+            border-top: 1px solid var(--border-soft);
 
-            color: #6e7681;
+            color: var(--dim);
 
-            font-size: 12px;
+            font-size: 11px;
         }
 
         footer span {
-            color: #00d084;
+            color: var(--green);
         }
 
 
-        /* =========================
-           RESPONSIVE
-        ========================== */
+        /* ANIMATIONS */
 
-        @media (max-width: 900px) {
+        @keyframes blink {
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
+
+        }
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+        @keyframes terminalFloat {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-6px);
+            }
+
+        }
+
+        .hero-container > div:first-child {
+            animation:
+                fadeUp 0.9s ease forwards;
+        }
+
+        .terminal {
+            animation:
+                fadeUp 0.9s ease 0.2s forwards,
+                terminalFloat 5s ease-in-out 1.2s infinite;
+        }
+
+        .reveal {
+            opacity: 0;
+
+            transform:
+                translateY(25px);
+
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* ACCESSIBILITY */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                scroll-behavior:
+                    auto !important;
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+            }
+
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 950px) {
 
             .hero-container {
                 grid-template-columns: 1fr;
+
                 gap: 45px;
             }
 
@@ -852,81 +1193,156 @@
             }
 
             .learning {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
-            .achievements {
-                grid-template-columns: 1fr;
-            }
         }
 
 
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
 
             nav {
-                padding: 15px 5%;
+                padding:
+                    15px 5%;
             }
 
             .nav-links {
                 display: none;
+
+                position: absolute;
+
+                top: 64px;
+
+                left: 5%;
+                right: 5%;
+
+                flex-direction: column;
+
+                gap: 0;
+
+                padding: 8px;
+
+                background: #0d1117;
+
+                border: 1px solid var(--border);
+
+                border-radius: 8px;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links li a {
+                display: block;
+
+                padding:
+                    10px 12px;
+            }
+
+            .mobile-menu {
+                display: block;
             }
 
             section {
-                padding: 75px 5%;
+                padding:
+                    80px 5%;
             }
 
             .hero {
-                padding: 120px 5% 70px;
-            }
-
-            .hero-container {
-                gap: 40px;
+                padding:
+                    115px 5% 70px;
             }
 
             .hero h1 {
-                font-size: 48px;
+                font-size:
+                    50px;
             }
 
             .hero h2 {
-                font-size: 20px;
+                font-size:
+                    18px;
             }
 
-            .hero-description {
-                font-size: 14px;
+            .hero-buttons {
+                gap: 8px;
             }
 
-            .section-heading h2 {
-                font-size: 30px;
+            .btn {
+                font-size:
+                    12px;
+
+                padding:
+                    9px 12px;
             }
 
             .highlight-cards {
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    1fr;
             }
 
             .skill-groups {
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    1fr;
             }
 
             .learning {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .experience-grid {
+                grid-template-columns:
+                    1fr;
             }
 
             .education {
-                align-items: flex-start;
+                align-items:
+                    flex-start;
+            }
+
+            .education h3 {
+                font-size:
+                    17px;
+            }
+
+            .project-image {
+                height:
+                    175px;
+            }
+
+        }
+
+
+        @media (max-width: 420px) {
+
+            .hero h1 {
+                font-size:
+                    43px;
+            }
+
+            .learning {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .contact-link {
+                width:
+                    100%;
             }
 
         }
 
     </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =========================
-     NAVIGATION
-========================== -->
+<!-- NAVIGATION -->
 
 <nav>
 
@@ -934,26 +1350,50 @@
         Hanen.dev
     </a>
 
-    <ul class="nav-links">
+    <button
+        class="mobile-menu"
+        id="mobileMenu">
+        MENU
+    </button>
+
+    <ul
+        class="nav-links"
+        id="navLinks">
 
         <li>
-            <a href="#whoami">whoami</a>
+            <a href="#whoami">
+                whoami
+            </a>
         </li>
 
         <li>
-            <a href="#skills">skills</a>
+            <a href="#skills">
+                skills
+            </a>
         </li>
 
         <li>
-            <a href="#projects">projects</a>
+            <a href="#projects">
+                projects
+            </a>
         </li>
 
         <li>
-            <a href="#education">education</a>
+            <a href="#education">
+                education
+            </a>
         </li>
 
         <li>
-            <a href="#contact">contact</a>
+            <a href="#experience">
+                experience
+            </a>
+        </li>
+
+        <li>
+            <a href="#contact">
+                contact
+            </a>
         </li>
 
     </ul>
@@ -962,11 +1402,11 @@
 
 
 
-<!-- =========================
-     HERO
-========================== -->
+<!-- HERO -->
 
-<header class="hero" id="home">
+<header
+    class="hero"
+    id="home">
 
     <div class="hero-container">
 
@@ -974,61 +1414,75 @@
         <div>
 
             <div class="terminal-line">
-                <span>$</span> whoami
+
+                <span id="typing-command"></span>
+
+                <span class="cursor">
+                    _
+                </span>
+
             </div>
 
+
             <h1>
-                Hi, I'm <span>Hanen</span>
+                Hanen<span>.dev</span>
             </h1>
+
 
             <h2>
                 IT Student | Cybersecurity & AI Enthusiast
             </h2>
 
+
             <p class="hero-description">
-                Building practical projects, exploring cybersecurity,
-                artificial intelligence, and automation while continuously
-                learning and improving my technical skills.
+
+                Building practical solutions across
+                cybersecurity, artificial intelligence,
+                and automation while continuously
+                developing my technical skills.
+
             </p>
+
+
+            <!-- HERO BUTTONS -->
 
             <div class="hero-buttons">
 
-               <div class="hero-buttons">
+                <a
+                    href="#projects"
+                    class="btn primary-btn">
+                    View Projects →
+                </a>
 
-    <a
-        href="#projects"
-        class="btn primary-btn">
-        View Projects →
-    </a>
+                <a
+                    href="https://github.com/Hanen-code"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn secondary-btn">
+                    GitHub
+                </a>
 
-    <a
-        href="https://github.com/Hanen-code"
-        target="_blank"
-        class="btn secondary-btn">
-        GitHub
-    </a>
+                <a
+                    href="https://www.linkedin.com/in/hanen-alahmari-it"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn secondary-btn">
+                    LinkedIn
+                </a>
 
-    <a
-        href="https://www.linkedin.com/in/hanen-alahmari-it"
-        target="_blank"
-        class="btn secondary-btn">
-        LinkedIn
-    </a>
+                <a
+                    href="resume.pdf"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn secondary-btn">
+                    CV
+                </a>
 
-    <a
-        href="cv.pdf"
-        target="_blank"
-        class="btn secondary-btn">
-        CV
-    </a>
-
-    <a
-        href="mailto:hanen29111@outlook.sa"
-        class="btn secondary-btn">
-        Email
-    </a>
-
-</div>
+                <a
+                    href="mailto:hanen29111@outlook.sa"
+                    class="btn secondary-btn">
+                    Email
+                </a>
 
             </div>
 
@@ -1061,7 +1515,9 @@
                 </p>
 
                 <p>
-                    <span class="blue">Hanen Alahmari</span>
+                    <span class="blue">
+                        Hanen Alahmari
+                    </span>
                 </p>
 
                 <p class="gray">
@@ -1098,9 +1554,12 @@
                     status
                 </p>
 
-                <p>
-                    <span class="green">●</span>
-                    Learning & Building
+                <p class="status">
+
+                    <span class="status-dot"></span>
+
+                    Currently learning & building
+
                 </p>
 
             </div>
@@ -1113,15 +1572,13 @@
 
 
 
-<!-- =========================
-     WHOAMI
-========================== -->
+<!-- WHOAMI -->
 
 <section id="whoami">
 
     <div class="section-container">
 
-        <div class="section-heading">
+        <div class="section-heading reveal">
 
             <div class="command">
                 $ whoami
@@ -1137,25 +1594,42 @@
         <div class="whoami">
 
 
-            <div class="whoami-text">
+            <div class="whoami-text reveal">
+
+                <div class="whoami-terminal">
+
+                    <span class="green">$</span>
+                    cat about.txt
+
+                </div>
+
 
                 <p>
-                    I am an Information Technology student at
-                    King Abdulaziz University with a strong interest
-                    in Cybersecurity, Blue Team, SOC, AI, and automation.
+
+                    I am an Information Technology student
+                    at King Abdulaziz University with a strong
+                    interest in Cybersecurity, Blue Team, SOC,
+                    AI, and Automation.
+
                 </p>
 
-                <p>
-                    I am gaining practical experience through my IT
-                    internship and enjoy building hands-on projects,
-                    solving technical challenges, and exploring new
-                    technologies.
-                </p>
 
                 <p>
-                    My goal is to build a strong career in defensive
-                    cybersecurity while continuously developing my
-                    technical skills.
+
+                    I am gaining practical experience through
+                    my IT internship while building hands-on
+                    projects and continuously improving my
+                    technical and problem-solving skills.
+
+                </p>
+
+
+                <p>
+
+                    My goal is to build a career in defensive
+                    cybersecurity while using AI and automation
+                    to create practical and useful solutions.
+
                 </p>
 
             </div>
@@ -1165,24 +1639,7 @@
             <div class="highlight-cards">
 
 
-                <div class="highlight">
-
-                    <div class="highlight-icon">
-                        🎓
-                    </div>
-
-                    <h3>
-                        IT Student
-                    </h3>
-
-                    <p>
-                        King Abdulaziz University
-                    </p>
-
-                </div>
-
-
-                <div class="highlight">
+                <div class="highlight reveal">
 
                     <div class="highlight-icon">
                         🛡️
@@ -1193,13 +1650,30 @@
                     </h3>
 
                     <p>
-                        Blue Team & SOC
+                        Defensive security & network protection
                     </p>
 
                 </div>
 
 
-                <div class="highlight">
+                <div class="highlight reveal">
+
+                    <div class="highlight-icon">
+                        🔵
+                    </div>
+
+                    <h3>
+                        Blue Team
+                    </h3>
+
+                    <p>
+                        SOC, monitoring & threat detection
+                    </p>
+
+                </div>
+
+
+                <div class="highlight reveal">
 
                     <div class="highlight-icon">
                         🤖
@@ -1210,13 +1684,13 @@
                     </h3>
 
                     <p>
-                        Machine Learning
+                        Machine Learning & practical AI
                     </p>
 
                 </div>
 
 
-                <div class="highlight">
+                <div class="highlight reveal">
 
                     <div class="highlight-icon">
                         ⚙️
@@ -1227,7 +1701,7 @@
                     </h3>
 
                     <p>
-                        n8n & APIs
+                        n8n workflows & API integrations
                     </p>
 
                 </div>
@@ -1243,15 +1717,13 @@
 
 
 
-<!-- =========================
-     SKILLS
-========================== -->
+<!-- SKILLS -->
 
 <section id="skills">
 
     <div class="section-container">
 
-        <div class="section-heading">
+        <div class="section-heading reveal">
 
             <div class="command">
                 $ skills
@@ -1267,7 +1739,7 @@
         <div class="skill-groups">
 
 
-            <div class="skill-group">
+            <div class="skill-group reveal">
 
                 <h3>
                     &gt; Programming
@@ -1275,18 +1747,32 @@
 
                 <div class="skill-list">
 
-                    <span class="skill">Python</span>
-                    <span class="skill">Java</span>
-                    <span class="skill">C#</span>
-                    <span class="skill">VB.NET</span>
-                    <span class="skill">SQL</span>
+                    <span class="skill">
+                        Python
+                    </span>
+
+                    <span class="skill">
+                        Java
+                    </span>
+
+                    <span class="skill">
+                        C#
+                    </span>
+
+                    <span class="skill">
+                        VB.NET
+                    </span>
+
+                    <span class="skill">
+                        SQL
+                    </span>
 
                 </div>
 
             </div>
 
 
-            <div class="skill-group">
+            <div class="skill-group reveal">
 
                 <h3>
                     &gt; Cybersecurity
@@ -1294,19 +1780,40 @@
 
                 <div class="skill-list">
 
-                    <span class="skill">Nmap</span>
-                    <span class="skill">Wireshark</span>
-                    <span class="skill">Linux</span>
-                    <span class="skill">Network Security</span>
-                    <span class="skill">Threat Detection</span>
-                    <span class="skill">Incident Response</span>
+                    <span class="skill">
+                        Nmap
+                    </span>
+
+                    <span class="skill">
+                        Wireshark
+                    </span>
+
+                    <span class="skill">
+                        Linux
+                    </span>
+
+                    <span class="skill">
+                        Network Security
+                    </span>
+
+                    <span class="skill">
+                        Threat Detection
+                    </span>
+
+                    <span class="skill">
+                        Incident Response
+                    </span>
+
+                    <span class="skill">
+                        SIEM
+                    </span>
 
                 </div>
 
             </div>
 
 
-            <div class="skill-group">
+            <div class="skill-group reveal">
 
                 <h3>
                     &gt; AI & Automation
@@ -1314,18 +1821,32 @@
 
                 <div class="skill-list">
 
-                    <span class="skill">Machine Learning</span>
-                    <span class="skill">Scikit-learn</span>
-                    <span class="skill">n8n</span>
-                    <span class="skill">APIs</span>
-                    <span class="skill">Google Gemini</span>
+                    <span class="skill">
+                        Machine Learning
+                    </span>
+
+                    <span class="skill">
+                        Scikit-learn
+                    </span>
+
+                    <span class="skill">
+                        n8n
+                    </span>
+
+                    <span class="skill">
+                        APIs
+                    </span>
+
+                    <span class="skill">
+                        Google Gemini
+                    </span>
 
                 </div>
 
             </div>
 
 
-            <div class="skill-group">
+            <div class="skill-group reveal">
 
                 <h3>
                     &gt; Tools & IT
@@ -1333,12 +1854,29 @@
 
                 <div class="skill-list">
 
-                    <span class="skill">Git</span>
-                    <span class="skill">GitHub</span>
-                    <span class="skill">FastAPI</span>
-                    <span class="skill">IT Support</span>
-                    <span class="skill">Splunk</span>
-                    <span class="skill">SIEM Fundamentals</span>
+                    <span class="skill">
+                        Git
+                    </span>
+
+                    <span class="skill">
+                        GitHub
+                    </span>
+
+                    <span class="skill">
+                        FastAPI
+                    </span>
+
+                    <span class="skill">
+                        IT Support
+                    </span>
+
+                    <span class="skill">
+                        Splunk
+                    </span>
+
+                    <span class="skill">
+                        VirtualBox
+                    </span>
 
                 </div>
 
@@ -1353,15 +1891,13 @@
 
 
 
-<!-- =========================
-     PROJECTS
-========================== -->
+<!-- PROJECTS -->
 
 <section id="projects">
 
     <div class="section-container">
 
-        <div class="section-heading">
+        <div class="section-heading reveal">
 
             <div class="command">
                 $ projects
@@ -1377,266 +1913,352 @@
         <div class="projects">
 
 
-            <!-- 01 -->
+            <!-- PROJECT 01 -->
 
-            <div class="project">
+            <article class="project">
 
-                <div class="project-number">
-                    PROJECT_01
-                </div>
+                <div class="project-image">
 
-                <div class="project-icon">
-                    🛡️
-                </div>
-
-                <h3>
-                    Phishing Email Detector
-                </h3>
-
-                <p>
-                    A Machine Learning based system that classifies
-                    email messages as Phishing or Legitimate using
-                    TF-IDF and Scikit-learn.
-                </p>
-
-                <div class="tech">
-
-                    <span>Python</span>
-                    <span>Scikit-learn</span>
-                    <span>FastAPI</span>
-                    <span>ML</span>
+                    <img
+                        src="screenshots/project-01.png"
+                        alt="Phishing Email Detector screenshot"
+                        onerror="this.style.display='none'"
+                    >
 
                 </div>
 
-                <a
-                    href="https://github.com/Hanen-code/phishing-email-detector"
-                    target="_blank"
-                    class="project-link">
 
-                    View Repository →
+                <div class="project-content">
 
-                </a>
+                    <div class="project-number">
+                        PROJECT_01
+                    </div>
 
-            </div>
+                    <div class="project-icon">
+                        🛡️
+                    </div>
 
+                    <h3>
+                        Phishing Email Detector
+                    </h3>
 
+                    <p>
+                        A Machine Learning based system that
+                        classifies email messages as Phishing
+                        or Legitimate using TF-IDF and
+                        Scikit-learn.
+                    </p>
 
-            <!-- 02 -->
+                    <div class="tech">
 
-            <div class="project">
+                        <span>Python</span>
+                        <span>Scikit-learn</span>
+                        <span>FastAPI</span>
+                        <span>ML</span>
 
-                <div class="project-number">
-                    PROJECT_02
-                </div>
+                    </div>
 
-                <div class="project-icon">
-                    🔐
-                </div>
-
-                <h3>
-                    Session Hijacking
-                </h3>
-
-                <p>
-                    A controlled cybersecurity lab demonstrating
-                    session hijacking and HTTP traffic analysis
-                    using Wireshark.
-                </p>
-
-                <div class="tech">
-
-                    <span>Cybersecurity</span>
-                    <span>Wireshark</span>
-                    <span>Linux</span>
-                    <span>VirtualBox</span>
+                    <a
+                        href="https://github.com/Hanen-code/phishing-email-detector"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link">
+                        View Repository →
+                    </a>
 
                 </div>
 
-                <a
-                    href="https://github.com/Hanen-code/session-hijacking"
-                    target="_blank"
-                    class="project-link">
-
-                    View Repository →
-
-                </a>
-
-            </div>
+            </article>
 
 
 
-            <!-- 03 -->
+            <!-- PROJECT 02 -->
 
-            <div class="project">
+            <article class="project">
 
-                <div class="project-number">
-                    PROJECT_03
-                </div>
+                <div class="project-image">
 
-                <div class="project-icon">
-                    🤖
-                </div>
-
-                <h3>
-                    Cybersecurity News Automation
-                </h3>
-
-                <p>
-                    An n8n workflow that collects cybersecurity news,
-                    processes and summarizes it using AI, and sends
-                    the results through Telegram.
-                </p>
-
-                <div class="tech">
-
-                    <span>n8n</span>
-                    <span>SerpApi</span>
-                    <span>Gemini</span>
-                    <span>Telegram</span>
+                    <img
+                        src="screenshots/project-02.png"
+                        alt="Session Hijacking project screenshot"
+                        onerror="this.style.display='none'"
+                    >
 
                 </div>
 
-                <a
-                    href="https://github.com/Hanen-code/Cybersecurity-news-automation-n8n"
-                    target="_blank"
-                    class="project-link">
 
-                    View Repository →
+                <div class="project-content">
 
-                </a>
+                    <div class="project-number">
+                        PROJECT_02
+                    </div>
 
-            </div>
+                    <div class="project-icon">
+                        🔐
+                    </div>
 
+                    <h3>
+                        Session Hijacking
+                    </h3>
 
+                    <p>
+                        A controlled cybersecurity lab
+                        demonstrating session hijacking and
+                        HTTP traffic analysis using Wireshark.
+                    </p>
 
-            <!-- 04 -->
+                    <div class="tech">
 
-            <div class="project">
+                        <span>Cybersecurity</span>
+                        <span>Wireshark</span>
+                        <span>Linux</span>
+                        <span>VirtualBox</span>
 
-                <div class="project-number">
-                    PROJECT_04
-                </div>
+                    </div>
 
-                <div class="project-icon">
-                    🗄️
-                </div>
-
-                <h3>
-                    Retail Inventory Management Database
-                </h3>
-
-                <p>
-                    A relational database project designed to manage
-                    retail inventory, products, suppliers, customers,
-                    and sales using SQL.
-                </p>
-
-                <div class="tech">
-
-                    <span>SQL</span>
-                    <span>Database</span>
-                    <span>ER Diagram</span>
+                    <a
+                        href="https://github.com/Hanen-code/session-hijacking"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link">
+                        View Repository →
+                    </a>
 
                 </div>
 
-                <a
-                    href="https://github.com/Hanen-code/Retail-Inventory-Management-Database"
-                    target="_blank"
-                    class="project-link">
-
-                    View Repository →
-
-                </a>
-
-            </div>
+            </article>
 
 
 
-            <!-- 05 -->
+            <!-- PROJECT 03 -->
 
-            <div class="project">
+            <article class="project">
 
-                <div class="project-number">
-                    PROJECT_05
-                </div>
+                <div class="project-image">
 
-                <div class="project-icon">
-                    🌐
-                </div>
-
-                <h3>
-                    Network Reconnaissance using Nmap
-                </h3>
-
-                <p>
-                    A controlled network security project using Nmap
-                    for network scanning, service enumeration,
-                    OS detection, and security analysis.
-                </p>
-
-                <div class="tech">
-
-                    <span>Nmap</span>
-                    <span>Networking</span>
-                    <span>Linux</span>
-                    <span>Cybersecurity</span>
+                    <img
+                        src="screenshots/project-03.png"
+                        alt="n8n automation project screenshot"
+                        onerror="this.style.display='none'"
+                    >
 
                 </div>
 
-                <a
-                    href="https://github.com/Hanen-code/nmap-network-reconnaissance"
-                    target="_blank"
-                    class="project-link">
 
-                    View Repository →
+                <div class="project-content">
 
-                </a>
+                    <div class="project-number">
+                        PROJECT_03
+                    </div>
 
-            </div>
+                    <div class="project-icon">
+                        🤖
+                    </div>
 
+                    <h3>
+                        Cybersecurity News Automation
+                    </h3>
 
+                    <p>
+                        An n8n workflow that collects
+                        cybersecurity news, summarizes it using
+                        AI, and sends the results through Telegram.
+                    </p>
 
-            <!-- 06 -->
+                    <div class="tech">
 
-            <div class="project">
+                        <span>n8n</span>
+                        <span>SerpApi</span>
+                        <span>Gemini</span>
+                        <span>Telegram</span>
 
-                <div class="project-number">
-                    PROJECT_06
-                </div>
+                    </div>
 
-                <div class="project-icon">
-                    🕵️
-                </div>
-
-                <h3>
-                    ARP Poisoning & MITM Analysis
-                </h3>
-
-                <p>
-                    A controlled cybersecurity lab analyzing ARP
-                    poisoning and Man-in-the-Middle traffic using
-                    network monitoring tools.
-                </p>
-
-                <div class="tech">
-
-                    <span>ARP</span>
-                    <span>MITM</span>
-                    <span>Wireshark</span>
-                    <span>Kali Linux</span>
+                    <a
+                        href="https://github.com/Hanen-code"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link">
+                        View Repository →
+                    </a>
 
                 </div>
 
-                <a
-                    href="https://github.com/Hanen-code/arp_poisoning_mitm_analysis"
-                    target="_blank"
-                    class="project-link">
+            </article>
 
-                    View Repository →
 
-                </a>
 
-            </div>
+            <!-- PROJECT 04 -->
+
+            <article class="project">
+
+                <div class="project-image">
+
+                    <img
+                        src="screenshots/project-04.png"
+                        alt="Retail Inventory Management Database screenshot"
+                        onerror="this.style.display='none'"
+                    >
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <div class="project-number">
+                        PROJECT_04
+                    </div>
+
+                    <div class="project-icon">
+                        🗄️
+                    </div>
+
+                    <h3>
+                        Retail Inventory Management Database
+                    </h3>
+
+                    <p>
+                        A relational database project designed
+                        to manage retail inventory, products,
+                        suppliers, customers, and sales using SQL.
+                    </p>
+
+                    <div class="tech">
+
+                        <span>SQL</span>
+                        <span>Database</span>
+                        <span>ER Diagram</span>
+
+                    </div>
+
+                    <a
+                        href="https://github.com/Hanen-code/Retail-Inventory-Management-Database"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link">
+                        View Repository →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 05 -->
+
+            <article class="project">
+
+                <div class="project-image">
+
+                    <img
+                        src="screenshots/project-05.png"
+                        alt="Network Reconnaissance project screenshot"
+                        onerror="this.style.display='none'"
+                    >
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <div class="project-number">
+                        PROJECT_05
+                    </div>
+
+                    <div class="project-icon">
+                        🌐
+                    </div>
+
+                    <h3>
+                        Network Reconnaissance using Nmap
+                    </h3>
+
+                    <p>
+                        A controlled network security project
+                        using Nmap for network scanning, service
+                        enumeration, OS detection, and security analysis.
+                    </p>
+
+                    <div class="tech">
+
+                        <span>Nmap</span>
+                        <span>Networking</span>
+                        <span>Linux</span>
+                        <span>Cybersecurity</span>
+
+                    </div>
+
+                    <a
+                        href="https://github.com/Hanen-code"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link">
+                        View Repository →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 06 -->
+
+            <article class="project">
+
+                <div class="project-image">
+
+                    <img
+                        src="screenshots/project-06.png"
+                        alt="ARP Poisoning and MITM Analysis screenshot"
+                        onerror="this.style.display='none'"
+                    >
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <div class="project-number">
+                        PROJECT_06
+                    </div>
+
+                    <div class="project-icon">
+                        🕵️
+                    </div>
+
+                    <h3>
+                        ARP Poisoning & MITM Analysis
+                    </h3>
+
+                    <p>
+                        A controlled cybersecurity lab
+                        analyzing ARP poisoning and
+                        Man-in-the-Middle traffic using
+                        network monitoring tools.
+                    </p>
+
+                    <div class="tech">
+
+                        <span>ARP</span>
+                        <span>MITM</span>
+                        <span>Wireshark</span>
+                        <span>Kali Linux</span>
+
+                    </div>
+
+                    <a
+                        href="https://github.com/Hanen-code"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link">
+                        View Repository →
+                    </a>
+
+                </div>
+
+            </article>
 
 
         </div>
@@ -1647,15 +2269,13 @@
 
 
 
-<!-- =========================
-     EDUCATION
-========================== -->
+<!-- EDUCATION -->
 
 <section id="education">
 
     <div class="section-container">
 
-        <div class="section-heading">
+        <div class="section-heading reveal">
 
             <div class="command">
                 $ education
@@ -1668,7 +2288,7 @@
         </div>
 
 
-        <div class="education">
+        <div class="education reveal">
 
             <div class="education-icon">
                 🎓
@@ -1698,15 +2318,13 @@
 
 
 
-<!-- =========================
-     CURRENTLY LEARNING
-========================== -->
+<!-- CURRENTLY LEARNING -->
 
 <section>
 
     <div class="section-container">
 
-        <div class="section-heading">
+        <div class="section-heading reveal">
 
             <div class="command">
                 $ currently_learning
@@ -1722,7 +2340,7 @@
         <div class="learning">
 
 
-            <div class="learning-card">
+            <div class="learning-card reveal">
 
                 <div class="icon">
                     🛡️
@@ -1739,7 +2357,7 @@
             </div>
 
 
-            <div class="learning-card">
+            <div class="learning-card reveal">
 
                 <div class="icon">
                     🔵
@@ -1756,7 +2374,7 @@
             </div>
 
 
-            <div class="learning-card">
+            <div class="learning-card reveal">
 
                 <div class="icon">
                     🤖
@@ -1773,7 +2391,7 @@
             </div>
 
 
-            <div class="learning-card">
+            <div class="learning-card reveal">
 
                 <div class="icon">
                     ⚙️
@@ -1798,50 +2416,68 @@
 
 
 
-<!-- =========================
-     ACHIEVEMENTS
-========================== -->
+<!-- EXPERIENCE & ACTIVITIES -->
 
-<section>
+<section id="experience">
 
     <div class="section-container">
 
-        <div class="section-heading">
+        <div class="section-heading reveal">
 
             <div class="command">
-                $ achievements
+                $ experience
             </div>
 
             <h2>
-                Activities & <span>Experience</span>
+                Experience & <span>Activities</span>
             </h2>
 
         </div>
 
 
-        <div class="achievements">
+        <div class="experience-grid">
 
 
-            <div class="achievement">
+            <div class="experience-card reveal">
 
-                <div class="achievement-icon">
-                    🎓
+                <div class="experience-icon">
+                    💻
                 </div>
 
                 <h3>
-                    Information Technology
+                    IT Internship
                 </h3>
 
                 <p>
-                    King Abdulaziz University
+                    Practical IT Support Experience
                 </p>
+
+                <ul class="experience-list">
+
+                    <li>
+                        Network troubleshooting
+                    </li>
+
+                    <li>
+                        Remote support
+                    </li>
+
+                    <li>
+                        System & device troubleshooting
+                    </li>
+
+                    <li>
+                        Windows / Server environments
+                    </li>
+
+                </ul>
 
             </div>
 
 
-            <div class="achievement">
+            <div class="experience-card reveal">
 
-                <div class="achievement-icon">
+                <div class="experience-icon">
                     🛡️
                 </div>
 
@@ -1853,22 +2489,25 @@
                     Hands-on security labs & projects
                 </p>
 
-            </div>
+                <ul class="experience-list">
 
+                    <li>
+                        Network security analysis
+                    </li>
 
-            <div class="achievement">
+                    <li>
+                        Traffic analysis
+                    </li>
 
-                <div class="achievement-icon">
-                    💻
-                </div>
+                    <li>
+                        Security monitoring concepts
+                    </li>
 
-                <h3>
-                    IT Internship
-                </h3>
+                    <li>
+                        Defensive cybersecurity
+                    </li>
 
-                <p>
-                    Practical IT support experience
-                </p>
+                </ul>
 
             </div>
 
@@ -1881,15 +2520,13 @@
 
 
 
-<!-- =========================
-     CONTACT
-========================== -->
+<!-- CONTACT -->
 
 <section id="contact">
 
     <div class="section-container">
 
-        <div class="section-heading">
+        <div class="section-heading reveal">
 
             <div class="command">
                 $ connect
@@ -1902,11 +2539,11 @@
         </div>
 
 
-        <div class="contact">
+        <div class="contact-box reveal">
 
             <p>
-                Interested in technology, cybersecurity,
-                AI, or collaboration? Feel free to connect.
+                Interested in cybersecurity, AI, or automation?
+                Let's connect and build something useful.
             </p>
 
 
@@ -1915,29 +2552,31 @@
                 <a
                     href="https://github.com/Hanen-code"
                     target="_blank"
+                    rel="noopener"
                     class="contact-link">
-
-                    💻 GitHub
-
+                    GitHub
                 </a>
-
 
                 <a
                     href="https://www.linkedin.com/in/hanen-alahmari-it"
                     target="_blank"
+                    rel="noopener"
                     class="contact-link">
-
-                    💼 LinkedIn
-
+                    LinkedIn
                 </a>
-
 
                 <a
                     href="mailto:hanen29111@outlook.sa"
                     class="contact-link">
+                    Email
+                </a>
 
-                    📧 Email
-
+                <a
+                    href="resume.pdf"
+                    target="_blank"
+                    rel="noopener"
+                    class="contact-link">
+                    CV
                 </a>
 
             </div>
@@ -1950,22 +2589,169 @@
 
 
 
-<!-- =========================
-     FOOTER
-========================== -->
+<!-- FOOTER -->
 
 <footer>
 
-    <p>
-        <span>Hanen.dev</span> · Built with HTML & CSS
-    </p>
+    Built with
+    <span>&lt;code&gt;</span>
+    & passion.
 
-    <p>
-        © 2026 Hanen Alahmari
-    </p>
+    <br>
+
+    © 2026 Hanen.dev
 
 </footer>
 
 
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+
+    /* TERMINAL TYPING */
+
+    const commandElement =
+        document.getElementById("typing-command");
+
+    const commandText =
+        "$ whoami";
+
+    let commandIndex = 0;
+
+
+    function typeCommand() {
+
+        if (commandIndex < commandText.length) {
+
+            commandElement.textContent +=
+                commandText.charAt(commandIndex);
+
+            commandIndex++;
+
+            setTimeout(
+                typeCommand,
+                85
+            );
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "load",
+        typeCommand
+    );
+
+
+
+    /* SCROLL REVEAL */
+
+    const revealElements =
+        document.querySelectorAll(
+            ".reveal, .project"
+        );
+
+
+    const observer =
+        new IntersectionObserver(
+
+            (entries) => {
+
+                entries.forEach(
+                    (entry) => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target.classList.add(
+                                "visible"
+                            );
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+
+            {
+                threshold: 0.12
+            }
+
+        );
+
+
+    revealElements.forEach(
+        (element) => {
+
+            observer.observe(
+                element
+            );
+
+        }
+    );
+
+
+
+    /* MOBILE MENU */
+
+    const mobileMenu =
+        document.getElementById(
+            "mobileMenu"
+        );
+
+    const navLinks =
+        document.getElementById(
+            "navLinks"
+        );
+
+
+    mobileMenu.addEventListener(
+        "click",
+        () => {
+
+            navLinks.classList.toggle(
+                "open"
+            );
+
+        }
+    );
+
+
+    /* CLOSE MOBILE MENU */
+
+    document
+        .querySelectorAll(
+            ".nav-links a"
+        )
+        .forEach(
+            (link) => {
+
+                link.addEventListener(
+                    "click",
+                    () => {
+
+                        navLinks.classList.remove(
+                            "open"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+</script>
+
+
 </body>
+
 </html>
