@@ -4,37 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Hanen Alahmari | IT & Cybersecurity</title>
+    <title>Hanen.dev | IT Student</title>
 
     <meta name="description"
-          content="Hanen Alahmari - Information Technology student interested in Cybersecurity, AI, and Automation.">
+          content="Hanen Alahmari - IT Student interested in Cybersecurity, AI, Blue Team and Automation.">
 
     <style>
 
         /* =========================
-           GENERAL
+           RESET
         ========================== */
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0d1117;
-            color: #ffffff;
-            line-height: 1.6;
+            font-family: "Courier New", monospace;
+            background: #080b10;
+            color: #e6edf3;
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
         a {
             text-decoration: none;
+            color: inherit;
         }
 
-        section {
-            padding: 90px 8%;
+        ::selection {
+            background: #00d084;
+            color: #080b10;
+        }
+
+
+        /* =========================
+           BACKGROUND
+        ========================== */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 208, 132, 0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(0, 208, 132, 0.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 45px 45px;
+
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+
+            position: fixed;
+            width: 500px;
+            height: 500px;
+
+            top: -200px;
+            right: -150px;
+
+            background: #00d084;
+            opacity: 0.035;
+
+            filter: blur(120px);
+            border-radius: 50%;
+
+            pointer-events: none;
+            z-index: -1;
         }
 
 
@@ -45,41 +98,48 @@
         nav {
             position: fixed;
             top: 0;
+            left: 0;
+
             width: 100%;
             z-index: 1000;
 
-            background: rgba(13, 17, 23, 0.92);
-            backdrop-filter: blur(10px);
-
-            border-bottom: 1px solid #30363d;
-
-            padding: 18px 8%;
+            padding: 18px 7%;
 
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+
+            background: rgba(8, 11, 16, 0.85);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid #1c2630;
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 21px;
             font-weight: bold;
-            color: #58a6ff;
+            color: #00d084;
+        }
+
+        .logo::before {
+            content: "$ ";
+            color: #6e7681;
         }
 
         .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 28px;
             list-style: none;
         }
 
         .nav-links a {
-            color: #c9d1d9;
+            color: #8b949e;
+            font-size: 14px;
             transition: 0.3s;
-            font-size: 15px;
         }
 
         .nav-links a:hover {
-            color: #58a6ff;
+            color: #00d084;
         }
 
 
@@ -91,157 +151,274 @@
             min-height: 100vh;
 
             display: flex;
-            justify-content: center;
             align-items: center;
 
-            text-align: center;
-
-            padding: 120px 20px 60px;
-
-            background:
-                radial-gradient(
-                    circle at top,
-                    #172554 0%,
-                    #0d1117 45%
-                );
+            padding: 130px 7% 80px;
         }
 
-        .hero-content {
-            max-width: 850px;
+        .hero-container {
+            width: 100%;
+            max-width: 1150px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+
+            gap: 70px;
+            align-items: center;
+        }
+
+        .terminal-line {
+            color: #6e7681;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .terminal-line span {
+            color: #00d084;
         }
 
         .hero h1 {
-            font-size: clamp(45px, 8vw, 75px);
-            margin-bottom: 15px;
+            font-family: Arial, sans-serif;
+
+            font-size: clamp(48px, 7vw, 78px);
+
+            line-height: 1.05;
+
+            margin-bottom: 20px;
         }
 
         .hero h1 span {
-            color: #58a6ff;
+            color: #00d084;
         }
 
         .hero h2 {
-            color: #8b949e;
+            font-family: Arial, sans-serif;
+
             font-size: clamp(20px, 3vw, 28px);
+
+            color: #8b949e;
+
             margin-bottom: 25px;
         }
 
-        .hero p {
-            color: #c9d1d9;
-            font-size: 18px;
-            max-width: 700px;
-            margin: auto;
+        .hero-description {
+            max-width: 680px;
+
+            color: #8b949e;
+
+            font-size: 16px;
         }
 
         .hero-buttons {
-            margin-top: 35px;
-
             display: flex;
-            justify-content: center;
-            gap: 15px;
             flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 32px;
         }
 
         .btn {
-            padding: 13px 25px;
-            border-radius: 8px;
+            padding: 11px 20px;
 
-            font-weight: bold;
+            border-radius: 7px;
+
+            border: 1px solid #30363d;
+
+            font-size: 14px;
 
             transition: 0.3s;
         }
 
         .primary-btn {
-            background: #238636;
-            color: white;
+            background: #00d084;
+            color: #080b10;
+
+            border-color: #00d084;
+
+            font-weight: bold;
         }
 
         .primary-btn:hover {
-            background: #2ea043;
             transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 208, 132, 0.15);
         }
 
         .secondary-btn {
-            border: 1px solid #58a6ff;
-            color: #58a6ff;
+            color: #c9d1d9;
         }
 
         .secondary-btn:hover {
-            background: #58a6ff;
-            color: #0d1117;
+            border-color: #00d084;
+            color: #00d084;
             transform: translateY(-3px);
         }
 
 
         /* =========================
-           SECTION TITLES
+           TERMINAL CARD
         ========================== */
 
-        .section-title {
-            text-align: center;
-            font-size: 38px;
-            color: #58a6ff;
-            margin-bottom: 50px;
-        }
-
-
-        /* =========================
-           ABOUT
-        ========================== */
-
-        .about-container {
-            max-width: 850px;
-            margin: auto;
-
-            text-align: center;
-
-            color: #c9d1d9;
-            font-size: 18px;
-        }
-
-        .about-container p {
-            margin-bottom: 20px;
-        }
-
-
-        /* =========================
-           EDUCATION
-        ========================== */
-
-        .education-card {
-            max-width: 800px;
-            margin: auto;
-
-            background: #161b22;
+        .terminal {
+            background: #0d1117;
 
             border: 1px solid #30363d;
 
-            border-radius: 14px;
+            border-radius: 12px;
 
-            padding: 30px;
+            overflow: hidden;
 
-            text-align: center;
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.45);
+        }
+
+        .terminal-header {
+            padding: 13px 16px;
+
+            background: #161b22;
+
+            border-bottom: 1px solid #30363d;
+
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .dot {
+            width: 11px;
+            height: 11px;
+
+            border-radius: 50%;
+
+            background: #30363d;
+        }
+
+        .terminal-title {
+            margin-left: 8px;
+
+            color: #6e7681;
+
+            font-size: 12px;
+        }
+
+        .terminal-body {
+            padding: 25px;
+
+            font-size: 14px;
+        }
+
+        .terminal-body p {
+            margin-bottom: 12px;
+        }
+
+        .green {
+            color: #00d084;
+        }
+
+        .blue {
+            color: #58a6ff;
+        }
+
+        .gray {
+            color: #6e7681;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================== */
+
+        section {
+            padding: 100px 7%;
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-heading {
+            margin-bottom: 50px;
+        }
+
+        .section-heading .command {
+            color: #00d084;
+            font-size: 15px;
+            margin-bottom: 7px;
+        }
+
+        .section-heading h2 {
+            font-family: Arial, sans-serif;
+
+            font-size: 38px;
+        }
+
+        .section-heading h2 span {
+            color: #00d084;
+        }
+
+
+        /* =========================
+           WHOAMI
+        ========================== */
+
+        .whoami {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 45px;
+        }
+
+        .whoami-text {
+            color: #8b949e;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        .whoami-text p {
+            margin-bottom: 18px;
+        }
+
+        .highlight-cards {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+        }
+
+        .highlight {
+            background: rgba(22, 27, 34, 0.75);
+
+            border: 1px solid #30363d;
+
+            border-radius: 10px;
+
+            padding: 25px;
 
             transition: 0.3s;
         }
 
-        .education-card:hover {
-            border-color: #58a6ff;
+        .highlight:hover {
             transform: translateY(-5px);
+            border-color: #00d084;
         }
 
-        .education-card h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
+        .highlight-icon {
+            font-size: 27px;
+            margin-bottom: 12px;
         }
 
-        .education-card p {
-            color: #8b949e;
+        .highlight h3 {
+            font-family: Arial, sans-serif;
+            margin-bottom: 7px;
         }
 
-        .education-card .university {
-            color: #58a6ff;
-            font-weight: bold;
-            margin-bottom: 8px;
+        .highlight p {
+            color: #6e7681;
+            font-size: 13px;
         }
 
 
@@ -249,35 +426,55 @@
            SKILLS
         ========================== */
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        .skill-groups {
+            display: grid;
 
-            gap: 15px;
+            grid-template-columns:
+                repeat(2, 1fr);
 
-            max-width: 900px;
-            margin: auto;
+            gap: 20px;
         }
 
-        .skill {
-            background: #161b22;
+        .skill-group {
+            background: rgba(22, 27, 34, 0.75);
 
             border: 1px solid #30363d;
 
-            padding: 12px 20px;
+            border-radius: 10px;
 
-            border-radius: 8px;
-
-            color: #c9d1d9;
+            padding: 25px;
 
             transition: 0.3s;
         }
 
-        .skill:hover {
-            color: #58a6ff;
-            border-color: #58a6ff;
-            transform: translateY(-3px);
+        .skill-group:hover {
+            border-color: #00d084;
+        }
+
+        .skill-group h3 {
+            color: #00d084;
+
+            font-size: 16px;
+
+            margin-bottom: 18px;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .skill {
+            padding: 7px 11px;
+
+            background: #21262d;
+
+            border-radius: 5px;
+
+            color: #c9d1d9;
+
+            font-size: 12px;
         }
 
 
@@ -289,79 +486,168 @@
             display: grid;
 
             grid-template-columns:
-                repeat(auto-fit, minmax(280px, 1fr));
+                repeat(2, 1fr);
 
-            gap: 25px;
-
-            max-width: 1100px;
-            margin: auto;
+            gap: 22px;
         }
 
         .project {
-            background: #161b22;
+            position: relative;
+
+            background: rgba(13, 17, 23, 0.9);
 
             border: 1px solid #30363d;
 
-            border-radius: 14px;
+            border-radius: 12px;
 
             padding: 28px;
 
-            display: flex;
-            flex-direction: column;
+            overflow: hidden;
 
-            transition: 0.3s;
+            transition: 0.35s;
+        }
+
+        .project::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 2px;
+
+            background: #00d084;
+
+            transform: scaleX(0);
+
+            transform-origin: left;
+
+            transition: 0.35s;
         }
 
         .project:hover {
-            transform: translateY(-8px);
-            border-color: #58a6ff;
+            transform: translateY(-7px);
+
+            border-color: #3b4854;
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .project:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-number {
+            color: #6e7681;
+            font-size: 12px;
+
+            margin-bottom: 15px;
         }
 
         .project-icon {
             font-size: 35px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .project h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
+            font-family: Arial, sans-serif;
+
+            font-size: 21px;
+
+            margin-bottom: 12px;
         }
 
         .project p {
             color: #8b949e;
-            margin-bottom: 20px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 14px;
+
+            margin-bottom: 18px;
         }
 
         .tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
 
-            margin-bottom: 25px;
+            gap: 7px;
+
+            margin-bottom: 22px;
         }
 
         .tech span {
-            font-size: 12px;
+            color: #00d084;
 
-            padding: 5px 9px;
+            background: rgba(0, 208, 132, 0.07);
+
+            border: 1px solid rgba(0, 208, 132, 0.2);
 
             border-radius: 5px;
 
-            background: #21262d;
-            color: #58a6ff;
+            padding: 5px 8px;
+
+            font-size: 11px;
         }
 
         .project-link {
             color: #58a6ff;
+
+            font-size: 13px;
+
             font-weight: bold;
-
-            margin-top: auto;
-
-            transition: 0.3s;
         }
 
         .project-link:hover {
             color: #79c0ff;
+        }
+
+
+        /* =========================
+           EDUCATION
+        ========================== */
+
+        .education {
+            display: flex;
+
+            align-items: center;
+
+            gap: 25px;
+
+            background: rgba(22, 27, 34, 0.75);
+
+            border: 1px solid #30363d;
+
+            border-radius: 12px;
+
+            padding: 30px;
+        }
+
+        .education-icon {
+            font-size: 40px;
+        }
+
+        .education h3 {
+            font-family: Arial, sans-serif;
+
+            font-size: 22px;
+
+            margin-bottom: 5px;
+        }
+
+        .education .university {
+            color: #00d084;
+
+            font-weight: bold;
+        }
+
+        .education p {
+            color: #8b949e;
+
+            font-size: 14px;
         }
 
 
@@ -373,21 +659,71 @@
             display: grid;
 
             grid-template-columns:
-                repeat(auto-fit, minmax(220px, 1fr));
+                repeat(4, 1fr);
 
-            gap: 20px;
-
-            max-width: 1000px;
-
-            margin: auto;
+            gap: 15px;
         }
 
         .learning-card {
+            text-align: center;
+
             background: #161b22;
 
             border: 1px solid #30363d;
 
-            border-radius: 12px;
+            border-radius: 10px;
+
+            padding: 25px 15px;
+
+            transition: 0.3s;
+        }
+
+        .learning-card:hover {
+            border-color: #00d084;
+            transform: translateY(-5px);
+        }
+
+        .learning-card .icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .learning-card h3 {
+            font-family: Arial, sans-serif;
+
+            font-size: 16px;
+
+            margin-bottom: 5px;
+        }
+
+        .learning-card p {
+            color: #6e7681;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           ACHIEVEMENTS
+        ========================== */
+
+        .achievements {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .achievement {
+            background: #161b22;
+
+            border: 1px solid #30363d;
+
+            border-radius: 10px;
 
             padding: 25px;
 
@@ -396,23 +732,24 @@
             transition: 0.3s;
         }
 
-        .learning-card:hover {
+        .achievement:hover {
+            border-color: #00d084;
             transform: translateY(-5px);
-            border-color: #58a6ff;
         }
 
-        .learning-card .icon {
-            font-size: 35px;
-            margin-bottom: 12px;
+        .achievement-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
         }
 
-        .learning-card h3 {
-            margin-bottom: 8px;
+        .achievement h3 {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
         }
 
-        .learning-card p {
-            color: #8b949e;
-            font-size: 14px;
+        .achievement p {
+            color: #6e7681;
+            font-size: 12px;
         }
 
 
@@ -422,36 +759,54 @@
 
         .contact {
             text-align: center;
+
+            padding: 45px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0, 208, 132, 0.06),
+                    rgba(88, 166, 255, 0.04)
+                );
+
+            border: 1px solid #30363d;
+
+            border-radius: 14px;
         }
 
         .contact p {
-            color: #c9d1d9;
-            margin-bottom: 20px;
+            color: #8b949e;
+
+            margin-bottom: 25px;
         }
 
         .contact-links {
             display: flex;
+
             justify-content: center;
 
-            gap: 15px;
-
             flex-wrap: wrap;
+
+            gap: 12px;
         }
 
         .contact-link {
-            padding: 12px 20px;
+            padding: 10px 18px;
 
             border: 1px solid #30363d;
 
-            border-radius: 8px;
+            border-radius: 7px;
 
-            color: #58a6ff;
+            color: #c9d1d9;
 
             transition: 0.3s;
         }
 
         .contact-link:hover {
-            border-color: #58a6ff;
+            color: #00d084;
+
+            border-color: #00d084;
+
             transform: translateY(-3px);
         }
 
@@ -463,48 +818,101 @@
         footer {
             text-align: center;
 
-            padding: 30px;
+            padding: 35px;
 
-            border-top: 1px solid #30363d;
+            border-top: 1px solid #1c2630;
 
-            color: #8b949e;
+            color: #6e7681;
 
-            font-size: 14px;
+            font-size: 12px;
+        }
+
+        footer span {
+            color: #00d084;
         }
 
 
         /* =========================
-           MOBILE
+           RESPONSIVE
         ========================== */
 
-        @media (max-width: 700px) {
+        @media (max-width: 900px) {
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .whoami {
+                grid-template-columns: 1fr;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .learning {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .achievements {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
 
             nav {
                 padding: 15px 5%;
             }
 
             .nav-links {
-                gap: 12px;
-            }
-
-            .nav-links a {
-                font-size: 12px;
-            }
-
-            .logo {
-                font-size: 18px;
+                display: none;
             }
 
             section {
-                padding: 70px 6%;
-            }
-
-            .section-title {
-                font-size: 30px;
+                padding: 75px 5%;
             }
 
             .hero {
-                padding-top: 130px;
+                padding: 120px 5% 70px;
+            }
+
+            .hero-container {
+                gap: 40px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .section-heading h2 {
+                font-size: 30px;
+            }
+
+            .highlight-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-groups {
+                grid-template-columns: 1fr;
+            }
+
+            .learning {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .education {
+                align-items: flex-start;
             }
 
         }
@@ -522,30 +930,30 @@
 
 <nav>
 
-    <div class="logo">
+    <a href="#home" class="logo">
         Hanen.dev
-    </div>
+    </a>
 
     <ul class="nav-links">
 
         <li>
-            <a href="#about">About</a>
+            <a href="#whoami">whoami</a>
         </li>
 
         <li>
-            <a href="#education">Education</a>
+            <a href="#skills">skills</a>
         </li>
 
         <li>
-            <a href="#skills">Skills</a>
+            <a href="#projects">projects</a>
         </li>
 
         <li>
-            <a href="#projects">Projects</a>
+            <a href="#education">education</a>
         </li>
 
         <li>
-            <a href="#contact">Contact</a>
+            <a href="#contact">contact</a>
         </li>
 
     </ul>
@@ -558,45 +966,127 @@
      HERO
 ========================== -->
 
-<header class="hero">
+<header class="hero" id="home">
 
-    <div class="hero-content">
+    <div class="hero-container">
 
-        <h1>
-            Hi, I'm <span>Hanen</span> 👋
-        </h1>
 
-        <h2>
-            IT Student | Cybersecurity & Technology Enthusiast
-        </h2>
+        <div>
 
-        <p>
-            I enjoy learning, building technical projects,
-            and exploring cybersecurity, artificial intelligence,
-            and automation.
-        </p>
+            <div class="terminal-line">
+                <span>$</span> whoami
+            </div>
 
-        <div class="hero-buttons">
+            <h1>
+                Hi, I'm <span>Hanen</span>
+            </h1>
 
-            <a
-                class="btn primary-btn"
-                href="#projects">
-                View My Projects ↓
-            </a>
+            <h2>
+                IT Student | Cybersecurity & AI Enthusiast
+            </h2>
 
-            <a
-                class="btn secondary-btn"
-                href="https://github.com/Hanen-code"
-                target="_blank">
-                GitHub
-            </a>
+            <p class="hero-description">
+                Building practical projects, exploring cybersecurity,
+                artificial intelligence, and automation while continuously
+                learning and improving my technical skills.
+            </p>
 
-            <a
-                class="btn secondary-btn"
-                href="https://www.linkedin.com/in/hanen-alahmari-it"
-                target="_blank">
-                LinkedIn
-            </a>
+            <div class="hero-buttons">
+
+                <a
+                    href="#projects"
+                    class="btn primary-btn">
+                    View Projects →
+                </a>
+
+                <a
+                    href="https://github.com/Hanen-code"
+                    target="_blank"
+                    class="btn secondary-btn">
+                    GitHub
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/hanen-alahmari-it"
+                    target="_blank"
+                    class="btn secondary-btn">
+                    LinkedIn
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TERMINAL -->
+
+        <div class="terminal">
+
+            <div class="terminal-header">
+
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+
+                <div class="terminal-title">
+                    hanen@portfolio: ~
+                </div>
+
+            </div>
+
+
+            <div class="terminal-body">
+
+                <p>
+                    <span class="green">$</span>
+                    whoami
+                </p>
+
+                <p>
+                    <span class="blue">Hanen Alahmari</span>
+                </p>
+
+                <p class="gray">
+                    Information Technology Student
+                </p>
+
+                <br>
+
+                <p>
+                    <span class="green">$</span>
+                    interests
+                </p>
+
+                <p>
+                    🛡️ Cybersecurity
+                </p>
+
+                <p>
+                    🔵 Blue Team / SOC
+                </p>
+
+                <p>
+                    🤖 Artificial Intelligence
+                </p>
+
+                <p>
+                    ⚙️ Automation
+                </p>
+
+                <br>
+
+                <p>
+                    <span class="green">$</span>
+                    status
+                </p>
+
+                <p>
+                    <span class="green">●</span>
+                    Learning & Building
+                </p>
+
+            </div>
 
         </div>
 
@@ -607,58 +1097,128 @@
 
 
 <!-- =========================
-     ABOUT
+     WHOAMI
 ========================== -->
 
-<section id="about">
+<section id="whoami">
 
-    <h2 class="section-title">
-        About Me
-    </h2>
+    <div class="section-container">
 
-    <div class="about-container">
+        <div class="section-heading">
 
-        <p>
-            I am an Information Technology student at
-            King Abdulaziz University with an interest in
-            cybersecurity, artificial intelligence, and technology.
-        </p>
+            <div class="command">
+                $ whoami
+            </div>
 
-        <p>
-            I enjoy developing technical projects that combine
-            technology with real-world problems while continuously
-            improving my skills and exploring new technologies.
-        </p>
+            <h2>
+                About <span>Me</span>
+            </h2>
 
-    </div>
-
-</section>
+        </div>
 
 
+        <div class="whoami">
 
-<!-- =========================
-     EDUCATION
-========================== -->
 
-<section id="education">
+            <div class="whoami-text">
 
-    <h2 class="section-title">
-        Education
-    </h2>
+                <p>
+                    I am an Information Technology student at
+                    King Abdulaziz University with a strong interest
+                    in Cybersecurity, Blue Team, SOC, AI, and automation.
+                </p>
 
-    <div class="education-card">
+                <p>
+                    I am gaining practical experience through my IT
+                    internship and enjoy building hands-on projects,
+                    solving technical challenges, and exploring new
+                    technologies.
+                </p>
 
-        <h3>
-            🎓 Bachelor of Information Technology
-        </h3>
+                <p>
+                    My goal is to build a strong career in defensive
+                    cybersecurity while continuously developing my
+                    technical skills.
+                </p>
 
-        <p class="university">
-            King Abdulaziz University
-        </p>
+            </div>
 
-        <p>
-            Information Technology Student
-        </p>
+
+
+            <div class="highlight-cards">
+
+
+                <div class="highlight">
+
+                    <div class="highlight-icon">
+                        🎓
+                    </div>
+
+                    <h3>
+                        IT Student
+                    </h3>
+
+                    <p>
+                        King Abdulaziz University
+                    </p>
+
+                </div>
+
+
+                <div class="highlight">
+
+                    <div class="highlight-icon">
+                        🛡️
+                    </div>
+
+                    <h3>
+                        Cybersecurity
+                    </h3>
+
+                    <p>
+                        Blue Team & SOC
+                    </p>
+
+                </div>
+
+
+                <div class="highlight">
+
+                    <div class="highlight-icon">
+                        🤖
+                    </div>
+
+                    <h3>
+                        AI
+                    </h3>
+
+                    <p>
+                        Machine Learning
+                    </p>
+
+                </div>
+
+
+                <div class="highlight">
+
+                    <div class="highlight-icon">
+                        ⚙️
+                    </div>
+
+                    <h3>
+                        Automation
+                    </h3>
+
+                    <p>
+                        n8n & APIs
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
 
     </div>
 
@@ -672,37 +1232,103 @@
 
 <section id="skills">
 
-    <h2 class="section-title">
-        Skills & Technologies
-    </h2>
+    <div class="section-container">
 
-    <div class="skills">
+        <div class="section-heading">
 
-        <div class="skill">Python</div>
+            <div class="command">
+                $ skills
+            </div>
 
-        <div class="skill">Java</div>
+            <h2>
+                Skills & <span>Technologies</span>
+            </h2>
 
-        <div class="skill">C#</div>
+        </div>
 
-        <div class="skill">VB.NET</div>
 
-        <div class="skill">Cybersecurity</div>
+        <div class="skill-groups">
 
-        <div class="skill">Nmap</div>
 
-        <div class="skill">Wireshark</div>
+            <div class="skill-group">
 
-        <div class="skill">FastAPI</div>
+                <h3>
+                    &gt; Programming
+                </h3>
 
-        <div class="skill">Machine Learning</div>
+                <div class="skill-list">
 
-        <div class="skill">n8n</div>
+                    <span class="skill">Python</span>
+                    <span class="skill">Java</span>
+                    <span class="skill">C#</span>
+                    <span class="skill">VB.NET</span>
+                    <span class="skill">SQL</span>
 
-        <div class="skill">Git & GitHub</div>
+                </div>
 
-        <div class="skill">SQL</div>
+            </div>
 
-        <div class="skill">Linux</div>
+
+            <div class="skill-group">
+
+                <h3>
+                    &gt; Cybersecurity
+                </h3>
+
+                <div class="skill-list">
+
+                    <span class="skill">Nmap</span>
+                    <span class="skill">Wireshark</span>
+                    <span class="skill">Linux</span>
+                    <span class="skill">Network Security</span>
+                    <span class="skill">Threat Detection</span>
+                    <span class="skill">Incident Response</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="skill-group">
+
+                <h3>
+                    &gt; AI & Automation
+                </h3>
+
+                <div class="skill-list">
+
+                    <span class="skill">Machine Learning</span>
+                    <span class="skill">Scikit-learn</span>
+                    <span class="skill">n8n</span>
+                    <span class="skill">APIs</span>
+                    <span class="skill">Google Gemini</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="skill-group">
+
+                <h3>
+                    &gt; Tools & IT
+                </h3>
+
+                <div class="skill-list">
+
+                    <span class="skill">Git</span>
+                    <span class="skill">GitHub</span>
+                    <span class="skill">FastAPI</span>
+                    <span class="skill">IT Support</span>
+                    <span class="skill">Splunk</span>
+                    <span class="skill">SIEM Fundamentals</span>
+
+                </div>
+
+            </div>
+
+
+        </div>
 
     </div>
 
@@ -716,131 +1342,338 @@
 
 <section id="projects">
 
-    <h2 class="section-title">
-        Featured Projects
-    </h2>
+    <div class="section-container">
 
-    <div class="projects">
+        <div class="section-heading">
 
-
-        <!-- PROJECT 1 -->
-
-        <div class="project">
-
-            <div class="project-icon">
-                🛡️
+            <div class="command">
+                $ projects
             </div>
 
-            <h3>
-                Phishing Email Detector
-            </h3>
-
-            <p>
-                A Machine Learning based system that classifies
-                email text as Phishing or Legitimate using
-                TF-IDF and Machine Learning algorithms.
-            </p>
-
-            <div class="tech">
-
-                <span>Python</span>
-                <span>Scikit-learn</span>
-                <span>FastAPI</span>
-                <span>Machine Learning</span>
-
-            </div>
-
-            <a
-                class="project-link"
-                href="https://github.com/Hanen-code/phishing-email-detector"
-                target="_blank">
-
-                View on GitHub →
-
-            </a>
+            <h2>
+                Featured <span>Work</span>
+            </h2>
 
         </div>
 
 
+        <div class="projects">
 
-        <!-- PROJECT 2 -->
 
-        <div class="project">
+            <!-- 01 -->
 
-            <div class="project-icon">
-                🔐
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT_01
+                </div>
+
+                <div class="project-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    Phishing Email Detector
+                </h3>
+
+                <p>
+                    A Machine Learning based system that classifies
+                    email messages as Phishing or Legitimate using
+                    TF-IDF and Scikit-learn.
+                </p>
+
+                <div class="tech">
+
+                    <span>Python</span>
+                    <span>Scikit-learn</span>
+                    <span>FastAPI</span>
+                    <span>ML</span>
+
+                </div>
+
+                <a
+                    href="https://github.com/Hanen-code/phishing-email-detector"
+                    target="_blank"
+                    class="project-link">
+
+                    View Repository →
+
+                </a>
+
             </div>
 
-            <h3>
-                Session Hijacking
-            </h3>
 
-            <p>
-                A controlled cybersecurity lab demonstrating
-                session hijacking and network traffic analysis
-                using Wireshark in an isolated environment.
-            </p>
 
-            <div class="tech">
+            <!-- 02 -->
 
-                <span>Cybersecurity</span>
-                <span>Wireshark</span>
-                <span>Linux</span>
-                <span>VirtualBox</span>
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT_02
+                </div>
+
+                <div class="project-icon">
+                    🔐
+                </div>
+
+                <h3>
+                    Session Hijacking
+                </h3>
+
+                <p>
+                    A controlled cybersecurity lab demonstrating
+                    session hijacking and HTTP traffic analysis
+                    using Wireshark.
+                </p>
+
+                <div class="tech">
+
+                    <span>Cybersecurity</span>
+                    <span>Wireshark</span>
+                    <span>Linux</span>
+                    <span>VirtualBox</span>
+
+                </div>
+
+                <a
+                    href="https://github.com/Hanen-code/session-hijacking"
+                    target="_blank"
+                    class="project-link">
+
+                    View Repository →
+
+                </a>
 
             </div>
 
-            <a
-                class="project-link"
-                href="https://github.com/Hanen-code/session-hijacking"
-                target="_blank">
 
-                View on GitHub →
 
-            </a>
+            <!-- 03 -->
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT_03
+                </div>
+
+                <div class="project-icon">
+                    🤖
+                </div>
+
+                <h3>
+                    Cybersecurity News Automation
+                </h3>
+
+                <p>
+                    An n8n workflow that collects cybersecurity news,
+                    processes and summarizes it using AI, and sends
+                    the results through Telegram.
+                </p>
+
+                <div class="tech">
+
+                    <span>n8n</span>
+                    <span>SerpApi</span>
+                    <span>Gemini</span>
+                    <span>Telegram</span>
+
+                </div>
+
+                <a
+                    href="https://github.com/Hanen-code/Cybersecurity-news-automation-n8n"
+                    target="_blank"
+                    class="project-link">
+
+                    View Repository →
+
+                </a>
+
+            </div>
+
+
+
+            <!-- 04 -->
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT_04
+                </div>
+
+                <div class="project-icon">
+                    🗄️
+                </div>
+
+                <h3>
+                    Retail Inventory Management Database
+                </h3>
+
+                <p>
+                    A relational database project designed to manage
+                    retail inventory, products, suppliers, customers,
+                    and sales using SQL.
+                </p>
+
+                <div class="tech">
+
+                    <span>SQL</span>
+                    <span>Database</span>
+                    <span>ER Diagram</span>
+
+                </div>
+
+                <a
+                    href="https://github.com/Hanen-code/Retail-Inventory-Management-Database"
+                    target="_blank"
+                    class="project-link">
+
+                    View Repository →
+
+                </a>
+
+            </div>
+
+
+
+            <!-- 05 -->
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT_05
+                </div>
+
+                <div class="project-icon">
+                    🌐
+                </div>
+
+                <h3>
+                    Network Reconnaissance using Nmap
+                </h3>
+
+                <p>
+                    A controlled network security project using Nmap
+                    for network scanning, service enumeration,
+                    OS detection, and security analysis.
+                </p>
+
+                <div class="tech">
+
+                    <span>Nmap</span>
+                    <span>Networking</span>
+                    <span>Linux</span>
+                    <span>Cybersecurity</span>
+
+                </div>
+
+                <a
+                    href="https://github.com/Hanen-code/nmap-network-reconnaissance"
+                    target="_blank"
+                    class="project-link">
+
+                    View Repository →
+
+                </a>
+
+            </div>
+
+
+
+            <!-- 06 -->
+
+            <div class="project">
+
+                <div class="project-number">
+                    PROJECT_06
+                </div>
+
+                <div class="project-icon">
+                    🕵️
+                </div>
+
+                <h3>
+                    ARP Poisoning & MITM Analysis
+                </h3>
+
+                <p>
+                    A controlled cybersecurity lab analyzing ARP
+                    poisoning and Man-in-the-Middle traffic using
+                    network monitoring tools.
+                </p>
+
+                <div class="tech">
+
+                    <span>ARP</span>
+                    <span>MITM</span>
+                    <span>Wireshark</span>
+                    <span>Kali Linux</span>
+
+                </div>
+
+                <a
+                    href="https://github.com/Hanen-code/arp_poisoning_mitm_analysis"
+                    target="_blank"
+                    class="project-link">
+
+                    View Repository →
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     EDUCATION
+========================== -->
+
+<section id="education">
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div class="command">
+                $ education
+            </div>
+
+            <h2>
+                My <span>Education</span>
+            </h2>
 
         </div>
 
 
+        <div class="education">
 
-        <!-- PROJECT 3 -->
-
-        <div class="project">
-
-            <div class="project-icon">
-                🤖
+            <div class="education-icon">
+                🎓
             </div>
 
-            <h3>
-                Cybersecurity News Automation
-            </h3>
+            <div>
 
-            <p>
-                An automated workflow that collects cybersecurity
-                news, summarizes it using AI, and delivers the
-                results through Telegram.
-            </p>
+                <h3>
+                    Bachelor of Information Technology
+                </h3>
 
-            <div class="tech">
+                <div class="university">
+                    King Abdulaziz University
+                </div>
 
-                <span>n8n</span>
-                <span>SerpApi</span>
-                <span>Google Gemini</span>
-                <span>Telegram</span>
+                <p>
+                    Information Technology Student
+                </p>
 
             </div>
-
-            <a
-                class="project-link"
-                href="https://github.com/Hanen-code/Cybersecurity-news-automation-n8n"
-                target="_blank">
-
-                View on GitHub →
-
-            </a>
 
         </div>
-
 
     </div>
 
@@ -854,84 +1687,176 @@
 
 <section>
 
-    <h2 class="section-title">
-        Currently Learning
-    </h2>
+    <div class="section-container">
 
-    <div class="learning">
+        <div class="section-heading">
 
-
-        <div class="learning-card">
-
-            <div class="icon">
-                🛡️
+            <div class="command">
+                $ currently_learning
             </div>
 
-            <h3>
-                Cybersecurity
-            </h3>
-
-            <p>
-                Exploring cybersecurity concepts,
-                network security and defensive techniques.
-            </p>
+            <h2>
+                Currently <span>Exploring</span>
+            </h2>
 
         </div>
 
 
-        <div class="learning-card">
+        <div class="learning">
 
-            <div class="icon">
-                🤖
+
+            <div class="learning-card">
+
+                <div class="icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    Cybersecurity
+                </h3>
+
+                <p>
+                    Defensive security and network protection
+                </p>
+
             </div>
 
-            <h3>
-                Artificial Intelligence
-            </h3>
 
-            <p>
-                Learning Machine Learning and exploring
-                practical AI applications.
-            </p>
+            <div class="learning-card">
+
+                <div class="icon">
+                    🔵
+                </div>
+
+                <h3>
+                    Blue Team / SOC
+                </h3>
+
+                <p>
+                    Monitoring, detection and incident response
+                </p>
+
+            </div>
+
+
+            <div class="learning-card">
+
+                <div class="icon">
+                    🤖
+                </div>
+
+                <h3>
+                    AI
+                </h3>
+
+                <p>
+                    Machine Learning and practical AI
+                </p>
+
+            </div>
+
+
+            <div class="learning-card">
+
+                <div class="icon">
+                    ⚙️
+                </div>
+
+                <h3>
+                    Automation
+                </h3>
+
+                <p>
+                    n8n workflows and API integrations
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ACHIEVEMENTS
+========================== -->
+
+<section>
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div class="command">
+                $ achievements
+            </div>
+
+            <h2>
+                Activities & <span>Experience</span>
+            </h2>
 
         </div>
 
 
-        <div class="learning-card">
+        <div class="achievements">
 
-            <div class="icon">
-                ⚙️
+
+            <div class="achievement">
+
+                <div class="achievement-icon">
+                    🎓
+                </div>
+
+                <h3>
+                    Information Technology
+                </h3>
+
+                <p>
+                    King Abdulaziz University
+                </p>
+
             </div>
 
-            <h3>
-                Automation
-            </h3>
 
-            <p>
-                Building workflows and automations
-                using tools such as n8n and APIs.
-            </p>
+            <div class="achievement">
 
-        </div>
+                <div class="achievement-icon">
+                    🛡️
+                </div>
 
+                <h3>
+                    Cybersecurity Projects
+                </h3>
 
-        <div class="learning-card">
+                <p>
+                    Hands-on security labs & projects
+                </p>
 
-            <div class="icon">
-                ☁️
             </div>
 
-            <h3>
-                APIs & Cloud
-            </h3>
 
-            <p>
-                Improving my understanding of APIs,
-                integrations and cloud technologies.
-            </p>
+            <div class="achievement">
+
+                <div class="achievement-icon">
+                    💻
+                </div>
+
+                <h3>
+                    IT Internship
+                </h3>
+
+                <p>
+                    Practical IT support experience
+                </p>
+
+            </div>
+
 
         </div>
-
 
     </div>
 
@@ -945,46 +1870,60 @@
 
 <section id="contact">
 
-    <h2 class="section-title">
-        Let's Connect
-    </h2>
+    <div class="section-container">
 
-    <div class="contact">
+        <div class="section-heading">
 
-        <p>
-            Feel free to connect with me through GitHub,
-            LinkedIn, or email.
-        </p>
+            <div class="command">
+                $ connect
+            </div>
 
-        <div class="contact-links">
+            <h2>
+                Let's <span>Connect</span>
+            </h2>
 
-            <a
-                class="contact-link"
-                href="https://github.com/Hanen-code"
-                target="_blank">
-
-                💻 GitHub
-
-            </a>
+        </div>
 
 
-            <a
-                class="contact-link"
-                href="https://www.linkedin.com/in/hanen-alahmari-it"
-                target="_blank">
+        <div class="contact">
 
-                💼 LinkedIn
-
-            </a>
+            <p>
+                Interested in technology, cybersecurity,
+                AI, or collaboration? Feel free to connect.
+            </p>
 
 
-            <a
-                class="contact-link"
-                href="mailto:hanen29111@outlook.sa">
+            <div class="contact-links">
 
-                📧 Email
+                <a
+                    href="https://github.com/Hanen-code"
+                    target="_blank"
+                    class="contact-link">
 
-            </a>
+                    💻 GitHub
+
+                </a>
+
+
+                <a
+                    href="https://www.linkedin.com/in/hanen-alahmari-it"
+                    target="_blank"
+                    class="contact-link">
+
+                    💼 LinkedIn
+
+                </a>
+
+
+                <a
+                    href="mailto:hanen29111@outlook.sa"
+                    class="contact-link">
+
+                    📧 Email
+
+                </a>
+
+            </div>
 
         </div>
 
@@ -1000,8 +1939,13 @@
 
 <footer>
 
-    © 2026 Hanen Alahmari
-    · Built with HTML & CSS
+    <p>
+        <span>Hanen.dev</span> · Built with HTML & CSS
+    </p>
+
+    <p>
+        © 2026 Hanen Alahmari
+    </p>
 
 </footer>
 
