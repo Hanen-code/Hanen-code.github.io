@@ -287,6 +287,26 @@ html[dir="rtl"] .project:hover::before{transform:scaleX(1)}
     .hero h1{font-size:41px}
     .learning{grid-template-columns:1fr}
     .contact-link{width:100%}
+    /* Typing animation */
+.typing-title {
+    min-height: 1.2em;
+}
+
+.cursor {
+    display: inline-block;
+    margin-left: 4px;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+
+    51%, 100% {
+        opacity: 0;
+    }
+}
 }
 </style>
 </head>
@@ -319,7 +339,10 @@ html[dir="rtl"] .project:hover::before{transform:scaleX(1)}
         <span id="typing-command"></span><span class="cursor">_</span>
     </div>
 
-    <h1>Hi, I’m <span>Hanen</span> 👋🏼</h1>
+    <h1 class="typing-title">
+    <span id="typingText"></span>
+    <span class="cursor">|</span>
+    </h1>
     <h2 data-en="IT Student | Cybersecurity & AI Enthusiast" data-ar="طالبة تقنية معلومات | مهتمة بالأمن السيبراني والذكاء الاصطناعي">IT Student | Cybersecurity & AI Enthusiast</h2>
     <p class="hero-description"
        data-en="Building practical solutions across cybersecurity, artificial intelligence, and automation while continuously developing my technical skills."
@@ -700,6 +723,21 @@ function applyLanguage(lang){
 langBtn.addEventListener("click",()=>applyLanguage(currentLang === "en" ? "ar" : "en"));
 applyLanguage(currentLang);
 </script>
+<script>
+const text = "Hi, I’m Hanen 👋🏼";
+const typingText = document.getElementById("typingText");
 
+let index = 0;
+
+function typeText() {
+    if (index < text.length) {
+        typingText.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeText, 100);
+    }
+}
+
+window.addEventListener("load", typeText);
+</script>
 </body>
 </html>
